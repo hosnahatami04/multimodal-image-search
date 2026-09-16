@@ -103,11 +103,17 @@ conda create -n multimodal-search python=3.11 -y
 conda activate multimodal-search
 
 make install       # torch (CPU index) first, then everything else
-make download      # ~275 MB download, expands to ~1 GB of JPEGs
+make download      # ~1.1 GB of parquet, expands to 8,000 JPEGs
 make test
 ```
 
 Disk: roughly 6 GB total once model weights are cached.
+
+**If the download stalls.** `huggingface_hub` restarts a file from zero when its
+connection drops, so on a link that stalls mid-transfer a large file never
+finishes. `make fetch` drives the transfer directly with HTTP range requests and
+resumes from wherever it got to; run it first, then `make download`, which finds
+the files already cached.
 
 ---
 
