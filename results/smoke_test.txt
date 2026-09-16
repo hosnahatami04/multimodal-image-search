@@ -1,0 +1,112 @@
+
+------------------------------------------------------------------------------
+ 1. "a dog running on grass"
+    probes: baseline -- must obviously work
+
+    1. +0.3479  train_00210         a dog runs across the grass .
+    2. +0.3437  train_01195         A big light brown dog runs on the green grass .
+    3. +0.3430  validation_00549    A brown dog races through a field .
+    4. +0.3426  train_01246         A brown and white dog runs in a field of yellow flowers 
+    5. +0.3425  train_05890         A brown dog is about to jump .
+
+------------------------------------------------------------------------------
+ 2. "two children playing on a beach"
+    probes: object + count + scene
+
+    1. +0.3233  test_00781          A little boy and a little girl are playing with pebbles 
+    2. +0.3226  train_01388         A black boy and white boy in swimming trunks are hugging
+    3. +0.3214  validation_00369    A toddler boy in a sailor suit and a little girl run in 
+    4. +0.3188  train_04419         A boy in an orange shirt and red hat is standing next to
+    5. +0.3187  train_00641         A boy and girl are splashing around in the ocean .
+
+------------------------------------------------------------------------------
+ 3. "a man riding a bicycle"
+    probes: object + action
+
+    1. +0.3306  train_00037         A bearded man wearing a bandanna is pointing his finger 
+    2. +0.3250  train_04047         A man in a dress suit is riding a bike down the paved ro
+    3. +0.3208  test_00934          A man in a beret rides a bicycle down the street .
+    4. +0.3188  train_01563         A man on a bicycle riding on the beach .
+    5. +0.3172  train_05970         A bearded man is riding a bicycle on the beach .
+
+------------------------------------------------------------------------------
+ 4. "a woman in a red dress"
+    probes: colour bound to the right object
+
+    1. +0.3103  train_04292         A redheaded woman looks behind her in a European courtya
+    2. +0.2804  train_03679         A group of people wait in similar attire .
+    3. +0.2802  train_00849         A lady wearing a red dress is playing a bagpipe .
+    4. +0.2751  train_05728         A large woman with a pink feather boa strolls down the s
+    5. +0.2690  train_03270         A girl in a costume is performing a dance as other girls
+
+------------------------------------------------------------------------------
+ 5. "three dogs"
+    probes: counting -- a known CLIP weakness
+
+    1. +0.2997  train_03162         As the brown dog looks the other way , a large black and
+    2. +0.2953  test_00100          A group of dogs runs beside a pond through a field .
+    3. +0.2951  train_01935         Two brown and white dogs lift their ears and look throug
+    4. +0.2950  train_02226         Three dogs are running down a snow covered hill .
+    5. +0.2937  train_02885         Three dogs affectionately playing
+
+------------------------------------------------------------------------------
+ 6. "a person snowboarding down a mountain"
+    probes: action + setting
+
+    1. +0.3321  train_00452         A boy does a jumping trick on a snowboard .
+    2. +0.3229  train_03650         A guy making a snowboarding move on a slope .
+    3. +0.3228  train_00009         A skier in a yellow jacket is airborne above the mountai
+    4. +0.3220  train_04128         A person is riding a snowboard doing an air stunt over a
+    5. +0.3211  train_01871         A person in a red jacket snowboarding .
+
+------------------------------------------------------------------------------
+ 7. "a street with no cars"
+    probes: negation -- CLIP has no mechanism for 'not'
+
+    1. +0.2999  train_04067         A bunch of people are talking down a city street with ol
+    2. +0.2969  train_03030         A street view with cars and buildings .
+    3. +0.2915  train_01367         A man on Rollerblades glides down a park path .
+    4. +0.2734  train_00542         A man walks toward a policeman standing in a crosswalk o
+    5. +0.2710  validation_00327    A girl on a pink scooter pushes herself down a subdivsio
+
+------------------------------------------------------------------------------
+ 8. "a dog behind a fence"
+    probes: spatial relation
+
+    1. +0.3198  train_01811         A black and white dog is running between yellow poles .
+    2. +0.3083  validation_00020    A black dog is looking through the fence .
+    3. +0.3083  test_00305          A brown dog is jumping over a fence and another dog is c
+    4. +0.3042  train_05685         A border collie is outside jumping over an obstacle .
+    5. +0.3021  train_02630         A black and white dog balances on a wooden plank .
+
+------------------------------------------------------------------------------
+ 9. "someone cooking in a kitchen"
+    probes: indoor scene, absent from most of Flickr8k
+
+    1. +0.2783  train_04307         A small , white dog is in the kitchen jumping in front o
+    2. +0.2734  train_05121         A woman and a boy are making hamburgers in the kitchen .
+    3. +0.2721  train_02089         A curious dog sniffs at grocery bags on a counter .
+    4. +0.2662  validation_00901    a man with a tattoo on his arm cooking something in a fr
+    5. +0.2637  train_05449         A black dog and small white and black dog look up at a k
+
+------------------------------------------------------------------------------
+10. "a crowd of people at night"
+    probes: scene + lighting
+
+    1. +0.3031  train_01691         A crowd is watching a performance in a dark venue , and 
+    2. +0.3012  train_05910         A crowd of people .
+    3. +0.2955  train_01569         A girl in a white shirt is looking down at a bunch of pe
+    4. +0.2947  train_02188         A crowd of people are gathered in a busy subway station 
+    5. +0.2887  train_04526         A brightly lit urban street with lots of people walking 
+
+------------------------------------------------------------------------------
+
+What to look for:
+  - The first few queries should return obviously matching photographs.
+    If they look random, the problem is image preprocessing or a missing
+    normalisation, not the model.
+  - 'three dogs' will probably return the wrong count. Expected.
+  - 'a street with no cars' will probably return streets WITH cars.
+    That is the negation failure, and it is worth reporting rather than
+    hiding.
+
