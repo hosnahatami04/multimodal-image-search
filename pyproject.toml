@@ -1,0 +1,48 @@
+[project]
+name = "multimodal-image-search"
+version = "0.1.0"
+description = "Bidirectional CLIP image-text search plus BLIP visual QA, with categorized failure analysis on Flickr8k."
+requires-python = ">=3.11"
+
+# ---------------------------------------------------------------------------
+# ruff -- linter and formatter in one tool (replaces flake8 + black + isort)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["data", "results"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes -- unused imports, undefined names
+    "I",    # isort -- import ordering
+    "B",    # flake8-bugbear -- likely bugs
+    "UP",   # pyupgrade -- modern syntax
+    "SIM",  # flake8-simplify
+    "RUF",  # ruff-specific rules
+]
+ignore = [
+    "E501",  # line length is enforced by the formatter, not the linter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]
+
+# ---------------------------------------------------------------------------
+# pytest
+#
+# Markers let CI skip tests that need multi-hundred-MB model weights or the
+# full downloaded dataset, while still running everything locally.
+#   pytest                 -> everything
+#   pytest -m "not model"  -> what CI runs
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "model: requires downloading model weights (CLIP / BLIP); skipped in CI",
+    "data: requires the downloaded Flickr8k dataset on disk",
+    "slow: takes more than a few seconds",
+]

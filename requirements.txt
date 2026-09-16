@@ -1,0 +1,51 @@
+# ---------------------------------------------------------------------------
+# Exact pins, not ranges.
+#
+# These are the versions the committed numbers in results/ were produced with.
+# A range like `transformers>=5` would let a future `pip install` change the
+# README's metrics without a single line of this repository changing, and the
+# drift would be indistinguishable from a real change in model quality.
+#
+# NOTE: torch / torchvision are deliberately NOT listed here.
+#
+# On Windows, a plain `pip install torch` pulls the CUDA build (~2.5 GB) even
+# on a machine with no NVIDIA GPU. This project is CPU-only, so torch has to be
+# installed from the PyTorch CPU index first:
+#
+#   pip install torch==2.14.0 torchvision==0.29.0 \
+#       --index-url https://download.pytorch.org/whl/cpu
+#
+# `make install` runs both steps in the right order.
+# ---------------------------------------------------------------------------
+
+# Model loading (CLIP, BLIP), tokenizers, and weight download
+transformers==5.17.0
+huggingface_hub==1.31.0
+safetensors==0.8.0
+hf-xet==1.6.0
+
+# Dataset download and extraction
+datasets==5.0.1
+
+# Numerics and image IO
+numpy==2.4.6
+pillow==12.3.0
+
+# Vector store
+chromadb==1.5.9
+
+# API layer
+fastapi==0.141.1
+uvicorn==0.53.0
+python-multipart==0.0.32
+
+# Analysis and plotting
+scikit-learn==1.9.1
+matplotlib==3.11.2
+
+# Progress reporting for the long encode run
+tqdm==4.70.1
+
+# Dev tooling
+pytest==9.1.1
+ruff==0.16.7

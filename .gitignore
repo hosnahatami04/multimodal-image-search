@@ -1,0 +1,51 @@
+# ---------------------------------------------------------------------------
+# Data and model artifacts.
+# Rule of thumb: anything a script can regenerate does not belong in git.
+# `results/` is the deliberate exception -- it is analysis output the README
+# depends on, so it IS committed.
+# ---------------------------------------------------------------------------
+data/raw/
+data/embeddings/
+data/chroma/
+!data/raw/.gitkeep
+!data/embeddings/.gitkeep
+
+# Hugging Face / torch weight caches, if pointed inside the repo
+.cache/
+models/
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ---------------------------------------------------------------------------
+# Notebooks / editors / OS
+# ---------------------------------------------------------------------------
+.ipynb_checkpoints/
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini

@@ -1,0 +1,12 @@
+# Normalise line endings in the repository to LF regardless of the OS the
+# commit was made on. Without this, a Windows checkout commits CRLF, CI runs on
+# Linux, and `ruff format --check` fails on files nobody edited.
+* text=auto eol=lf
+
+# Binary files git must not touch.
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.npy binary
+*.parquet binary
+*.pdf binary
