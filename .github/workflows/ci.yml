@@ -35,8 +35,8 @@ jobs:
 
       - name: Lint
         run: |
-          python -m ruff check src tests
-          python -m ruff format --check src tests
+          python -m ruff check src tests scripts
+          python -m ruff format --check src tests scripts
 
       - name: Test
         # Tests needing model weights or the 1 GB dataset are marked and

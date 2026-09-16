@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------
 PYTHON ?= python
 
-.PHONY: help install download stats test lint format clean
+.PHONY: help install fetch download stats test lint format clean
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -15,6 +15,9 @@ help:  ## Show this help
 install:  ## Install all Python dependencies
 	$(PYTHON) -m pip install torch==2.14.0 torchvision==0.29.0 --index-url https://download.pytorch.org/whl/cpu
 	$(PYTHON) -m pip install -r requirements.txt
+
+fetch:  ## Download the parquet files resumably (use when the Hub client stalls)
+	$(PYTHON) scripts/fetch_parquet.py
 
 download:  ## Download Flickr8k into data/raw and verify integrity
 	$(PYTHON) -m src.data.download
@@ -26,12 +29,12 @@ test:  ## Run the test suite
 	$(PYTHON) -m pytest -v
 
 lint:  ## Check style and lint rules
-	$(PYTHON) -m ruff check src tests
-	$(PYTHON) -m ruff format --check src tests
+	$(PYTHON) -m ruff check src tests scripts
+	$(PYTHON) -m ruff format --check src tests scripts
 
 format:  ## Auto-format the codebase
-	$(PYTHON) -m ruff format src tests
-	$(PYTHON) -m ruff check --fix src tests
+	$(PYTHON) -m ruff format src tests scripts
+	$(PYTHON) -m ruff check --fix src tests scripts
 
 clean:  ## Remove caches (does NOT delete downloaded data)
 	rm -rf .pytest_cache .ruff_cache .coverage htmlcov
