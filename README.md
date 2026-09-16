@@ -4,8 +4,9 @@ Bidirectional semantic search over Flickr8k through a shared CLIP embedding
 space, plus a BLIP visual-question-answering layer — and a categorized
 breakdown of where both of them fail.
 
-> **Status:** Phase 1 of 7 complete (data pipeline). This README grows with
-> each phase; metrics appear as the phases that measure them land.
+> **Status:** Phase 1 of 7 complete (data pipeline, run end to end on the real
+> dataset). This README grows with each phase; metrics appear as the phases
+> that measure them land.
 
 ---
 
@@ -79,6 +80,50 @@ other's output.
 | Tests | pytest | Model- and data-dependent tests are marked so CI can skip them |
 | Lint/format | ruff | Replaces flake8 + black + isort with one fast tool |
 | Container | Docker, multi-stage | Weights baked in so the image runs fully offline |
+
+---
+
+## The human ceiling
+
+*From `results/caption_agreement.json`, over all 8,000 images.*
+
+Each image carries five captions written independently by five people. That
+redundancy is usually spent as five times more training text. Measured instead,
+it says how ambiguous the task itself is — and therefore how well any model
+could possibly do.
+
+| Measure | Value | Reading |
+|---|---|---|
+| Mean pairwise Jaccard | **0.217** | Two annotators share about a fifth of their content words |
+| Mean subject consensus | **0.823** | But they agree on *what the photo is of* far more often |
+| All five share a subject | **43.7%** | Unambiguous images — a miss here is the model's fault |
+| No majority subject | **5.3%** | ~426 images where the annotators themselves disagree |
+| Caption length | 11.8 words | within-image spread 3.3 words |
+
+The gap between 0.217 and 0.823 is the finding. People describe the same
+photograph in very different words while agreeing on its subject, which is
+exactly why lexical matching is the wrong tool and a shared embedding space is
+the right one.
+
+The 5.3% matters for Phase 6: when the model fails on an image whose own
+annotators could not agree, that is a property of the data, not a model error —
+and this file is the evidence for saying so.
+
+Both numbers are *lower bounds*. The measures here are lexical, so they score
+"a wakeboarder" and "a parasurfer" as unrelated:
+
+```
+test_00837   mean Jaccard 0.009
+  - A man jet boarding .
+  - A parasurfer is airborne over the water .
+  - A wakeboarder is attempting a trick while holding on to lines pointed upward .
+  - A wakeboarder is jumping a huge wave .
+  - person on a wakeboard in the air
+```
+
+Five people, one scene, five different words for it. The semantic view — which
+does not make this mistake — arrives in Phase 2, once CLIP is available to
+provide it.
 
 ---
 

@@ -221,6 +221,19 @@ def analyse(records: Sequence[ImageRecord], split: str = "all") -> tuple[Agreeme
     return report, per_image
 
 
+def _rounded(payload: dict[str, object], places: int = 4) -> dict[str, object]:
+    """Trim float precision before the results file is committed.
+
+    A Jaccard score carries four meaningful digits; the other thirteen that
+    float repr prints are noise. Keeping them inflates the committed file by
+    roughly a quarter and makes every diff of it unreadable.
+    """
+    return {
+        key: round(value, places) if isinstance(value, float) else value
+        for key, value in payload.items()
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Measure inter-annotator caption agreement.")
     parser.add_argument("--split", default=None, help="restrict to one split")
@@ -254,10 +267,10 @@ def main(argv: list[str] | None = None) -> int:
         output.write_text(
             json.dumps(
                 {
-                    "report": asdict(report),
-                    "per_image": [asdict(item) for item in per_image],
+                    "report": _rounded(asdict(report)),
+                    "per_image": [_rounded(asdict(item)) for item in per_image],
                 },
-                indent=2,
+                indent=1,
             ),
             encoding="utf-8",
         )
