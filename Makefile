@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------
 PYTHON ?= python
 
-.PHONY: help install fetch download stats test lint format clean
+.PHONY: help install fetch download stats agreement check-clip encode space search smoke test test-all lint format clean-index clean
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -25,7 +25,28 @@ download:  ## Download Flickr8k into data/raw and verify integrity
 stats:  ## Print dataset statistics (counts, caption lengths)
 	$(PYTHON) -m src.data.dataset --stats
 
-test:  ## Run the test suite
+agreement:  ## Measure inter-annotator caption agreement and save results
+	$(PYTHON) -m src.data.agreement --save
+
+check-clip:  ## Sanity check: an image should sit closer to its own captions
+	$(PYTHON) -m src.embedding.clip_encoder --check
+
+encode:  ## Encode all images, cache the vectors, build the index (slow, once)
+	$(PYTHON) -m src.embedding.build_index
+
+search:  ## Example text query -- make search Q="a dog jumping over a fence"
+	$(PYTHON) -m src.search.text_to_image $(Q)
+
+space:  ## Measure the embedding space geometry and save results
+	$(PYTHON) -m src.embedding.stats --save
+
+smoke:  ## Run the manual smoke test over a fixed set of queries
+	$(PYTHON) -m src.search.smoke
+
+test:  ## Run the tests that need no model weights or dataset (what CI runs)
+	$(PYTHON) -m pytest -q -m "not model and not data"
+
+test-all:  ## Run every test, including those needing CLIP and the dataset
 	$(PYTHON) -m pytest -v
 
 lint:  ## Check style and lint rules
@@ -35,6 +56,9 @@ lint:  ## Check style and lint rules
 format:  ## Auto-format the codebase
 	$(PYTHON) -m ruff format src tests scripts
 	$(PYTHON) -m ruff check --fix src tests scripts
+
+clean-index:  ## Delete the embedding cache and the Chroma index
+	rm -rf data/embeddings data/chroma
 
 clean:  ## Remove caches (does NOT delete downloaded data)
 	rm -rf .pytest_cache .ruff_cache .coverage htmlcov
