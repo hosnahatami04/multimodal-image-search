@@ -1,0 +1,15 @@
+{
+ "count": 8000,
+ "dim": 512,
+ "image_pair_mean": 0.52,
+ "image_pair_p05": 0.3658,
+ "image_pair_p95": 0.7006,
+ "image_pair_max": 0.9053,
+ "caption_image_mean": 0.3194,
+ "caption_image_p05": 0.2624,
+ "caption_image_p95": 0.3697,
+ "random_caption_image_mean": 0.1681,
+ "alignment_gap": 0.1513,
+ "model_id": "openai/clip-vit-base-patch32",
+ "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+}
