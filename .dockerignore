@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# What the build context does NOT need.
+#
+# Without this, `docker build` uploads the 1 GB of raw JPEGs to the daemon
+# before the first instruction runs, on every build. The Dockerfile copies
+# data/embeddings, data/chroma and captions.csv explicitly; everything else
+# under data/ is excluded below.
+# ---------------------------------------------------------------------------
+
+# The raw corpus: 1 GB, and the API never reads it.
+data/raw/images/
+data/raw/manifest.json
+
+# Git history and tooling
+.git/
+.github/
+.gitignore
+.gitattributes
+
+# Python caches and virtualenvs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Tests and analysis outputs are not part of the service
+tests/
+results/
+notebooks/
+*.ipynb
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+
+# Docs
+README.md
+Makefile
