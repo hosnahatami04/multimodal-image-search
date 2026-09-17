@@ -1,0 +1,11 @@
+{
+ "own_mean": 0.318,
+ "own_p05": 0.2634,
+ "own_p95": 0.3691,
+ "random_mean": 0.1702,
+ "random_p95": 0.2472,
+ "gap": 0.1478,
+ "separation": 1.0,
+ "overlap": 0.0175,
+ "num_captions": 4000
+}

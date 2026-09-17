@@ -1,0 +1,129 @@
+{
+ "num_groups": 12,
+ "mean_group_size": 8.17,
+ "mean_tightness": 0.8679,
+ "recall_at_1_within_group": 0.5833,
+ "recall_at_1_full_corpus": 0.25,
+ "groups": [
+  {
+   "group_id": "g01",
+   "theme": "scene",
+   "query": "a boy wearing a helmet airborne on a snowboard",
+   "target_image_id": "test_00276",
+   "group_size": 6,
+   "mean_similarity": 0.8663,
+   "rank_within_group": 3,
+   "rank_in_full_corpus": 90
+  },
+  {
+   "group_id": "g02",
+   "theme": "bike",
+   "query": "a dirt bike being ridden over bare rock",
+   "target_image_id": "test_00082",
+   "group_size": 7,
+   "mean_similarity": 0.8656,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 19
+  },
+  {
+   "group_id": "g03",
+   "theme": "dog",
+   "query": "a dog swimming toward a waterfall",
+   "target_image_id": "test_00230",
+   "group_size": 10,
+   "mean_similarity": 0.8692,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 1
+  },
+  {
+   "group_id": "g04",
+   "theme": "brown",
+   "query": "a brown dog panting on grass in bright sunshine",
+   "target_image_id": "test_00435",
+   "group_size": 10,
+   "mean_similarity": 0.8694,
+   "rank_within_group": 2,
+   "rank_in_full_corpus": 25
+  },
+  {
+   "group_id": "g05",
+   "theme": "dog",
+   "query": "a brown dog clearing a jump on an agility course",
+   "target_image_id": "test_00150",
+   "group_size": 10,
+   "mean_similarity": 0.8663,
+   "rank_within_group": 4,
+   "rank_in_full_corpus": 24
+  },
+  {
+   "group_id": "g06",
+   "theme": "ramp",
+   "query": "a skateboarder dropping down a very steep outdoor ramp",
+   "target_image_id": "test_00222",
+   "group_size": 6,
+   "mean_similarity": 0.8659,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 3
+  },
+  {
+   "group_id": "g07",
+   "theme": "jumping",
+   "query": "a boy in a blue life vest leaping backwards off a pier",
+   "target_image_id": "test_00835",
+   "group_size": 5,
+   "mean_similarity": 0.8656,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 1
+  },
+  {
+   "group_id": "g08",
+   "theme": "scene",
+   "query": "a child riding a blue and yellow merry-go-round",
+   "target_image_id": "test_00724",
+   "group_size": 10,
+   "mean_similarity": 0.865,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 13
+  },
+  {
+   "group_id": "g09",
+   "theme": "scene",
+   "query": "a boy in a pool with a beach ball floating behind him",
+   "target_image_id": "test_00146",
+   "group_size": 10,
+   "mean_similarity": 0.8811,
+   "rank_within_group": 3,
+   "rank_in_full_corpus": 18
+  },
+  {
+   "group_id": "g10",
+   "theme": "scene",
+   "query": "a boy performing a backflip on sand",
+   "target_image_id": "test_00388",
+   "group_size": 6,
+   "mean_similarity": 0.8627,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 1
+  },
+  {
+   "group_id": "g11",
+   "theme": "scene",
+   "query": "a white dog chasing a stuffed toy pulled along a string",
+   "target_image_id": "test_00243",
+   "group_size": 10,
+   "mean_similarity": 0.8732,
+   "rank_within_group": 2,
+   "rank_in_full_corpus": 13
+  },
+  {
+   "group_id": "g12",
+   "theme": "mountain",
+   "query": "a man holding a flag beside tents pitched in snow",
+   "target_image_id": "test_00448",
+   "group_size": 8,
+   "mean_similarity": 0.864,
+   "rank_within_group": 1,
+   "rank_in_full_corpus": 2
+  }
+ ]
+}

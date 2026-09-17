@@ -1,0 +1,308 @@
+[
+ {
+  "query_id": "q001",
+  "query": "a dog leaping into water",
+  "gold_image_id": "test_00927",
+  "category": "object"
+ },
+ {
+  "query_id": "q002",
+  "query": "a small white dog on a leash beside a fence",
+  "gold_image_id": "test_00958",
+  "category": "object"
+ },
+ {
+  "query_id": "q003",
+  "query": "a black dog with a collar running across a lawn",
+  "gold_image_id": "test_00685",
+  "category": "object"
+ },
+ {
+  "query_id": "q004",
+  "query": "a child holding sparklers",
+  "gold_image_id": "test_00089",
+  "category": "object"
+ },
+ {
+  "query_id": "q005",
+  "query": "a motorcycle balanced on its rear wheel",
+  "gold_image_id": "test_00534",
+  "category": "object"
+ },
+ {
+  "query_id": "q006",
+  "query": "a rowing boat on open blue water",
+  "gold_image_id": "test_00789",
+  "category": "object"
+ },
+ {
+  "query_id": "q007",
+  "query": "a tent pitched high on a mountainside",
+  "gold_image_id": "test_00687",
+  "category": "object"
+ },
+ {
+  "query_id": "q008",
+  "query": "a religious signboard on a street",
+  "gold_image_id": "test_00414",
+  "category": "object"
+ },
+ {
+  "query_id": "q009",
+  "query": "someone airborne on a snowboard",
+  "gold_image_id": "test_00314",
+  "category": "action"
+ },
+ {
+  "query_id": "q010",
+  "query": "a wet dog shaking water off its coat",
+  "gold_image_id": "test_00247",
+  "category": "action"
+ },
+ {
+  "query_id": "q011",
+  "query": "a dog catching a flying disc in mid-air",
+  "gold_image_id": "test_00845",
+  "category": "action"
+ },
+ {
+  "query_id": "q012",
+  "query": "a person scaling a rock face",
+  "gold_image_id": "test_00488",
+  "category": "action"
+ },
+ {
+  "query_id": "q013",
+  "query": "a girl leaping over a metal railing",
+  "gold_image_id": "test_00415",
+  "category": "action"
+ },
+ {
+  "query_id": "q014",
+  "query": "a footballer striking the ball with his head",
+  "gold_image_id": "test_00721",
+  "category": "action"
+ },
+ {
+  "query_id": "q015",
+  "query": "a kitesurfer losing balance over the sea",
+  "gold_image_id": "test_00581",
+  "category": "action"
+ },
+ {
+  "query_id": "q016",
+  "query": "a dog jumping to grab a rope toy",
+  "gold_image_id": "test_00241",
+  "category": "action"
+ },
+ {
+  "query_id": "q017",
+  "query": "a child crawling through a concrete tunnel",
+  "gold_image_id": "test_00277",
+  "category": "action"
+ },
+ {
+  "query_id": "q018",
+  "query": "calm water under an evening sky",
+  "gold_image_id": "test_00131",
+  "category": "scene"
+ },
+ {
+  "query_id": "q019",
+  "query": "onlookers watching fireworks in the dark",
+  "gold_image_id": "test_00857",
+  "category": "scene"
+ },
+ {
+  "query_id": "q020",
+  "query": "people gathered around a campfire",
+  "gold_image_id": "test_00878",
+  "category": "scene"
+ },
+ {
+  "query_id": "q021",
+  "query": "a large crowd at an outdoor gathering",
+  "gold_image_id": "test_00609",
+  "category": "scene"
+ },
+ {
+  "query_id": "q022",
+  "query": "a child soaked by jets of water at a play park",
+  "gold_image_id": "test_00114",
+  "category": "scene"
+ },
+ {
+  "query_id": "q023",
+  "query": "girls posing beside a decorated christmas tree",
+  "gold_image_id": "test_00852",
+  "category": "scene"
+ },
+ {
+  "query_id": "q024",
+  "query": "a man sleeping rough on a pavement",
+  "gold_image_id": "test_00196",
+  "category": "scene"
+ },
+ {
+  "query_id": "q025",
+  "query": "a skateboarder wearing a crimson top",
+  "gold_image_id": "test_00194",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q026",
+  "query": "an elderly man in a bright red cap",
+  "gold_image_id": "test_00445",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q027",
+  "query": "a dog wearing a blue garment on grass",
+  "gold_image_id": "test_00617",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q028",
+  "query": "a snowboarder dressed in vivid green",
+  "gold_image_id": "test_00501",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q029",
+  "query": "a black and white dog with a red collar",
+  "gold_image_id": "test_00069",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q030",
+  "query": "a man in red trunks jumping onto a board",
+  "gold_image_id": "test_00946",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q031",
+  "query": "twin girls in orange tops and green trousers",
+  "gold_image_id": "test_00163",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q032",
+  "query": "a dog carrying an orange ball while swimming",
+  "gold_image_id": "test_00218",
+  "category": "attribute"
+ },
+ {
+  "query_id": "q033",
+  "query": "three youngsters playing in beach sand",
+  "gold_image_id": "test_00078",
+  "category": "counting"
+ },
+ {
+  "query_id": "q034",
+  "query": "three men assembling a sledge on snow",
+  "gold_image_id": "test_00465",
+  "category": "counting"
+ },
+ {
+  "query_id": "q035",
+  "query": "three men gazing into the distance",
+  "gold_image_id": "test_00044",
+  "category": "counting"
+ },
+ {
+  "query_id": "q036",
+  "query": "two boys eating ice lollies",
+  "gold_image_id": "test_00090",
+  "category": "counting"
+ },
+ {
+  "query_id": "q037",
+  "query": "two dogs tumbling over each other among leaves",
+  "gold_image_id": "test_00143",
+  "category": "counting"
+ },
+ {
+  "query_id": "q038",
+  "query": "two small girls playing together",
+  "gold_image_id": "test_00151",
+  "category": "counting"
+ },
+ {
+  "query_id": "q039",
+  "query": "four or more swimmers heading toward a bridge",
+  "gold_image_id": "test_00783",
+  "category": "counting"
+ },
+ {
+  "query_id": "q040",
+  "query": "one dog running past another beside patio chairs",
+  "gold_image_id": "test_00116",
+  "category": "spatial"
+ },
+ {
+  "query_id": "q041",
+  "query": "a person suspended from a pole with mountains behind",
+  "gold_image_id": "test_00688",
+  "category": "spatial"
+ },
+ {
+  "query_id": "q042",
+  "query": "a boy standing up on a railing",
+  "gold_image_id": "test_00967",
+  "category": "spatial"
+ },
+ {
+  "query_id": "q043",
+  "query": "a child asleep stretched across two chairs",
+  "gold_image_id": "test_00460",
+  "category": "spatial"
+ },
+ {
+  "query_id": "q044",
+  "query": "one climber seated on rock above the sea while another ascends",
+  "gold_image_id": "test_00792",
+  "category": "spatial"
+ },
+ {
+  "query_id": "q045",
+  "query": "men on the shore with a boat out on the water",
+  "gold_image_id": "test_00215",
+  "category": "spatial"
+ },
+ {
+  "query_id": "q046",
+  "query": "a cyclist in a blue helmet with feet up on the handlebars",
+  "gold_image_id": "test_00774",
+  "category": "compositional"
+ },
+ {
+  "query_id": "q047",
+  "query": "a large brown dog chasing a smaller white one on grass",
+  "gold_image_id": "test_00382",
+  "category": "compositional"
+ },
+ {
+  "query_id": "q048",
+  "query": "a man and a golden dog together on sand",
+  "gold_image_id": "test_00866",
+  "category": "compositional"
+ },
+ {
+  "query_id": "q049",
+  "query": "a racing dog wearing a numbered bib",
+  "gold_image_id": "test_00838",
+  "category": "compositional"
+ },
+ {
+  "query_id": "q050",
+  "query": "someone filming a skier performing a trick",
+  "gold_image_id": "test_00487",
+  "category": "compositional"
+ },
+ {
+  "query_id": "q051",
+  "query": "a man gesturing toward a silver car",
+  "gold_image_id": "test_00202",
+  "category": "compositional"
+ }
+]
