@@ -1,0 +1,208 @@
+[
+ {
+  "group_id": "g01",
+  "theme": "scene",
+  "query": "a boy wearing a helmet airborne on a snowboard",
+  "target_image_id": "test_00276",
+  "image_ids": [
+   "test_00276",
+   "validation_00624",
+   "train_00682",
+   "train_00179",
+   "train_05693",
+   "train_01523"
+  ],
+  "mean_similarity": 0.8663
+ },
+ {
+  "group_id": "g02",
+  "theme": "bike",
+  "query": "a dirt bike being ridden over bare rock",
+  "target_image_id": "test_00082",
+  "image_ids": [
+   "test_00082",
+   "train_03602",
+   "train_01173",
+   "test_00227",
+   "train_03954",
+   "train_02877",
+   "test_00776"
+  ],
+  "mean_similarity": 0.8656
+ },
+ {
+  "group_id": "g03",
+  "theme": "dog",
+  "query": "a dog swimming toward a waterfall",
+  "target_image_id": "test_00230",
+  "image_ids": [
+   "test_00230",
+   "validation_00086",
+   "test_00367",
+   "train_04060",
+   "train_04322",
+   "train_02205",
+   "validation_00693",
+   "train_00024",
+   "train_00200",
+   "train_02956"
+  ],
+  "mean_similarity": 0.8692
+ },
+ {
+  "group_id": "g04",
+  "theme": "brown",
+  "query": "a brown dog panting on grass in bright sunshine",
+  "target_image_id": "test_00435",
+  "image_ids": [
+   "test_00435",
+   "train_01086",
+   "train_02363",
+   "train_00201",
+   "train_03159",
+   "train_01256",
+   "train_03859",
+   "train_03791",
+   "train_01822",
+   "test_00247"
+  ],
+  "mean_similarity": 0.8694
+ },
+ {
+  "group_id": "g05",
+  "theme": "dog",
+  "query": "a brown dog clearing a jump on an agility course",
+  "target_image_id": "test_00150",
+  "image_ids": [
+   "test_00150",
+   "train_03197",
+   "train_05200",
+   "train_04377",
+   "train_00031",
+   "train_05626",
+   "validation_00524",
+   "train_02245",
+   "train_04947",
+   "test_00612"
+  ],
+  "mean_similarity": 0.8663
+ },
+ {
+  "group_id": "g06",
+  "theme": "ramp",
+  "query": "a skateboarder dropping down a very steep outdoor ramp",
+  "target_image_id": "test_00222",
+  "image_ids": [
+   "test_00222",
+   "train_04997",
+   "validation_00405",
+   "validation_00113",
+   "train_03959",
+   "train_03294"
+  ],
+  "mean_similarity": 0.8659
+ },
+ {
+  "group_id": "g07",
+  "theme": "jumping",
+  "query": "a boy in a blue life vest leaping backwards off a pier",
+  "target_image_id": "test_00835",
+  "image_ids": [
+   "test_00835",
+   "validation_00399",
+   "train_03566",
+   "test_00073",
+   "train_02104"
+  ],
+  "mean_similarity": 0.8656
+ },
+ {
+  "group_id": "g08",
+  "theme": "scene",
+  "query": "a child riding a blue and yellow merry-go-round",
+  "target_image_id": "test_00724",
+  "image_ids": [
+   "test_00724",
+   "validation_00878",
+   "train_00074",
+   "train_03647",
+   "train_04027",
+   "train_03361",
+   "test_00157",
+   "train_03798",
+   "train_02575",
+   "train_02313"
+  ],
+  "mean_similarity": 0.865
+ },
+ {
+  "group_id": "g09",
+  "theme": "scene",
+  "query": "a boy in a pool with a beach ball floating behind him",
+  "target_image_id": "test_00146",
+  "image_ids": [
+   "test_00146",
+   "train_02003",
+   "test_00461",
+   "train_03043",
+   "train_01038",
+   "train_02496",
+   "train_03038",
+   "train_03111",
+   "train_05359",
+   "test_00800"
+  ],
+  "mean_similarity": 0.8811
+ },
+ {
+  "group_id": "g10",
+  "theme": "scene",
+  "query": "a boy performing a backflip on sand",
+  "target_image_id": "test_00388",
+  "image_ids": [
+   "test_00388",
+   "test_00856",
+   "train_00610",
+   "train_04973",
+   "train_05752",
+   "validation_00987"
+  ],
+  "mean_similarity": 0.8627
+ },
+ {
+  "group_id": "g11",
+  "theme": "scene",
+  "query": "a white dog chasing a stuffed toy pulled along a string",
+  "target_image_id": "test_00243",
+  "image_ids": [
+   "test_00243",
+   "train_01517",
+   "validation_00180",
+   "train_01246",
+   "test_00325",
+   "train_00399",
+   "train_00836",
+   "train_05481",
+   "train_01372",
+   "train_03759"
+  ],
+  "mean_similarity": 0.8732
+ },
+ {
+  "group_id": "g12",
+  "theme": "mountain",
+  "query": "a man holding a flag beside tents pitched in snow",
+  "target_image_id": "test_00448",
+  "image_ids": [
+   "test_00448",
+   "test_00687",
+   "train_05325",
+   "train_03881",
+   "test_00494",
+   "train_00639",
+   "train_00609",
+   "train_00030"
+  ],
+  "mean_similarity": 0.864
+ }
+]

@@ -1,0 +1,600 @@
+{
+ "split": "test",
+ "corpus_size": 8000,
+ "model_id": "openai/clip-vit-base-patch32",
+ "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+ "num_queries": 51,
+ "recall": {
+  "1": 0.1176,
+  "5": 0.4314,
+  "10": 0.5686
+ },
+ "mrr": 0.2612,
+ "median_rank": 7,
+ "mean_rank": 69.78,
+ "worst_rank": 1671,
+ "by_category": {
+  "action": {
+   "n": 9,
+   "recall": {
+    "1": 0.1111,
+    "5": 0.1111,
+    "10": 0.2222
+   },
+   "mrr": 0.1393,
+   "median_rank": 30
+  },
+  "attribute": {
+   "n": 8,
+   "recall": {
+    "1": 0.25,
+    "5": 0.75,
+    "10": 0.875
+   },
+   "mrr": 0.4733,
+   "median_rank": 2
+  },
+  "compositional": {
+   "n": 6,
+   "recall": {
+    "1": 0.0,
+    "5": 0.0,
+    "10": 0.3333
+   },
+   "mrr": 0.0708,
+   "median_rank": 18
+  },
+  "counting": {
+   "n": 7,
+   "recall": {
+    "1": 0.0,
+    "5": 0.7143,
+    "10": 0.7143
+   },
+   "mrr": 0.2441,
+   "median_rank": 4
+  },
+  "object": {
+   "n": 8,
+   "recall": {
+    "1": 0.0,
+    "5": 0.625,
+    "10": 0.75
+   },
+   "mrr": 0.2467,
+   "median_rank": 5
+  },
+  "scene": {
+   "n": 7,
+   "recall": {
+    "1": 0.2857,
+    "5": 0.4286,
+    "10": 0.5714
+   },
+   "mrr": 0.3555,
+   "median_rank": 6
+  },
+  "spatial": {
+   "n": 6,
+   "recall": {
+    "1": 0.1667,
+    "5": 0.3333,
+    "10": 0.5
+   },
+   "mrr": 0.2811,
+   "median_rank": 16
+  }
+ },
+ "outcomes": [
+  {
+   "query_id": "q001",
+   "query_text": "a dog leaping into water",
+   "gold_image_id": "test_00927",
+   "rank": 43,
+   "gold_score": 0.3318,
+   "top_image_id": "test_00367",
+   "top_score": 0.3655,
+   "category": "object"
+  },
+  {
+   "query_id": "q002",
+   "query_text": "a small white dog on a leash beside a fence",
+   "gold_image_id": "test_00958",
+   "rank": 6,
+   "gold_score": 0.315,
+   "top_image_id": "train_00474",
+   "top_score": 0.3406,
+   "category": "object"
+  },
+  {
+   "query_id": "q003",
+   "query_text": "a black dog with a collar running across a lawn",
+   "gold_image_id": "test_00685",
+   "rank": 20,
+   "gold_score": 0.3406,
+   "top_image_id": "validation_00296",
+   "top_score": 0.3679,
+   "category": "object"
+  },
+  {
+   "query_id": "q004",
+   "query_text": "a child holding sparklers",
+   "gold_image_id": "test_00089",
+   "rank": 3,
+   "gold_score": 0.3728,
+   "top_image_id": "train_05859",
+   "top_score": 0.3796,
+   "category": "object"
+  },
+  {
+   "query_id": "q005",
+   "query_text": "a motorcycle balanced on its rear wheel",
+   "gold_image_id": "test_00534",
+   "rank": 5,
+   "gold_score": 0.3054,
+   "top_image_id": "train_05267",
+   "top_score": 0.3216,
+   "category": "object"
+  },
+  {
+   "query_id": "q006",
+   "query_text": "a rowing boat on open blue water",
+   "gold_image_id": "test_00789",
+   "rank": 5,
+   "gold_score": 0.3111,
+   "top_image_id": "train_03347",
+   "top_score": 0.3438,
+   "category": "object"
+  },
+  {
+   "query_id": "q007",
+   "query_text": "a tent pitched high on a mountainside",
+   "gold_image_id": "test_00687",
+   "rank": 2,
+   "gold_score": 0.3183,
+   "top_image_id": "train_04636",
+   "top_score": 0.3188,
+   "category": "object"
+  },
+  {
+   "query_id": "q008",
+   "query_text": "a religious signboard on a street",
+   "gold_image_id": "test_00414",
+   "rank": 2,
+   "gold_score": 0.2922,
+   "top_image_id": "validation_00062",
+   "top_score": 0.2991,
+   "category": "object"
+  },
+  {
+   "query_id": "q009",
+   "query_text": "someone airborne on a snowboard",
+   "gold_image_id": "test_00314",
+   "rank": 233,
+   "gold_score": 0.2517,
+   "top_image_id": "train_00452",
+   "top_score": 0.3252,
+   "category": "action"
+  },
+  {
+   "query_id": "q010",
+   "query_text": "a wet dog shaking water off its coat",
+   "gold_image_id": "test_00247",
+   "rank": 30,
+   "gold_score": 0.3159,
+   "top_image_id": "train_01168",
+   "top_score": 0.3603,
+   "category": "action"
+  },
+  {
+   "query_id": "q011",
+   "query_text": "a dog catching a flying disc in mid-air",
+   "gold_image_id": "test_00845",
+   "rank": 551,
+   "gold_score": 0.295,
+   "top_image_id": "train_05305",
+   "top_score": 0.3736,
+   "category": "action"
+  },
+  {
+   "query_id": "q012",
+   "query_text": "a person scaling a rock face",
+   "gold_image_id": "test_00488",
+   "rank": 23,
+   "gold_score": 0.3249,
+   "top_image_id": "validation_00689",
+   "top_score": 0.351,
+   "category": "action"
+  },
+  {
+   "query_id": "q013",
+   "query_text": "a girl leaping over a metal railing",
+   "gold_image_id": "test_00415",
+   "rank": 10,
+   "gold_score": 0.3182,
+   "top_image_id": "train_00956",
+   "top_score": 0.3562,
+   "category": "action"
+  },
+  {
+   "query_id": "q014",
+   "query_text": "a footballer striking the ball with his head",
+   "gold_image_id": "test_00721",
+   "rank": 57,
+   "gold_score": 0.2938,
+   "top_image_id": "train_01245",
+   "top_score": 0.348,
+   "category": "action"
+  },
+  {
+   "query_id": "q015",
+   "query_text": "a kitesurfer losing balance over the sea",
+   "gold_image_id": "test_00581",
+   "rank": 25,
+   "gold_score": 0.2915,
+   "top_image_id": "train_03435",
+   "top_score": 0.3252,
+   "category": "action"
+  },
+  {
+   "query_id": "q016",
+   "query_text": "a dog jumping to grab a rope toy",
+   "gold_image_id": "test_00241",
+   "rank": 78,
+   "gold_score": 0.3125,
+   "top_image_id": "test_00623",
+   "top_score": 0.3432,
+   "category": "action"
+  },
+  {
+   "query_id": "q017",
+   "query_text": "a child crawling through a concrete tunnel",
+   "gold_image_id": "test_00277",
+   "rank": 1,
+   "gold_score": 0.3596,
+   "top_image_id": "test_00277",
+   "top_score": 0.3596,
+   "category": "action"
+  },
+  {
+   "query_id": "q018",
+   "query_text": "calm water under an evening sky",
+   "gold_image_id": "test_00131",
+   "rank": 40,
+   "gold_score": 0.2329,
+   "top_image_id": "train_02097",
+   "top_score": 0.2737,
+   "category": "scene"
+  },
+  {
+   "query_id": "q019",
+   "query_text": "onlookers watching fireworks in the dark",
+   "gold_image_id": "test_00857",
+   "rank": 27,
+   "gold_score": 0.2584,
+   "top_image_id": "train_05061",
+   "top_score": 0.2918,
+   "category": "scene"
+  },
+  {
+   "query_id": "q020",
+   "query_text": "people gathered around a campfire",
+   "gold_image_id": "test_00878",
+   "rank": 4,
+   "gold_score": 0.3019,
+   "top_image_id": "train_03550",
+   "top_score": 0.3338,
+   "category": "scene"
+  },
+  {
+   "query_id": "q021",
+   "query_text": "a large crowd at an outdoor gathering",
+   "gold_image_id": "test_00609",
+   "rank": 6,
+   "gold_score": 0.3097,
+   "top_image_id": "validation_00283",
+   "top_score": 0.3197,
+   "category": "scene"
+  },
+  {
+   "query_id": "q022",
+   "query_text": "a child soaked by jets of water at a play park",
+   "gold_image_id": "test_00114",
+   "rank": 99,
+   "gold_score": 0.2879,
+   "top_image_id": "train_05742",
+   "top_score": 0.3434,
+   "category": "scene"
+  },
+  {
+   "query_id": "q023",
+   "query_text": "girls posing beside a decorated christmas tree",
+   "gold_image_id": "test_00852",
+   "rank": 1,
+   "gold_score": 0.3091,
+   "top_image_id": "test_00852",
+   "top_score": 0.3091,
+   "category": "scene"
+  },
+  {
+   "query_id": "q024",
+   "query_text": "a man sleeping rough on a pavement",
+   "gold_image_id": "test_00196",
+   "rank": 1,
+   "gold_score": 0.3238,
+   "top_image_id": "test_00196",
+   "top_score": 0.3238,
+   "category": "scene"
+  },
+  {
+   "query_id": "q025",
+   "query_text": "a skateboarder wearing a crimson top",
+   "gold_image_id": "test_00194",
+   "rank": 2,
+   "gold_score": 0.3444,
+   "top_image_id": "train_02338",
+   "top_score": 0.3542,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q026",
+   "query_text": "an elderly man in a bright red cap",
+   "gold_image_id": "test_00445",
+   "rank": 2,
+   "gold_score": 0.3153,
+   "top_image_id": "train_02660",
+   "top_score": 0.3168,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q027",
+   "query_text": "a dog wearing a blue garment on grass",
+   "gold_image_id": "test_00617",
+   "rank": 3,
+   "gold_score": 0.3436,
+   "top_image_id": "validation_00855",
+   "top_score": 0.3483,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q028",
+   "query_text": "a snowboarder dressed in vivid green",
+   "gold_image_id": "test_00501",
+   "rank": 118,
+   "gold_score": 0.275,
+   "top_image_id": "train_04429",
+   "top_score": 0.3595,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q029",
+   "query_text": "a black and white dog with a red collar",
+   "gold_image_id": "test_00069",
+   "rank": 3,
+   "gold_score": 0.3199,
+   "top_image_id": "test_00579",
+   "top_score": 0.328,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q030",
+   "query_text": "a man in red trunks jumping onto a board",
+   "gold_image_id": "test_00946",
+   "rank": 9,
+   "gold_score": 0.3068,
+   "top_image_id": "train_03666",
+   "top_score": 0.3452,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q031",
+   "query_text": "twin girls in orange tops and green trousers",
+   "gold_image_id": "test_00163",
+   "rank": 1,
+   "gold_score": 0.3533,
+   "top_image_id": "test_00163",
+   "top_score": 0.3533,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q032",
+   "query_text": "a dog carrying an orange ball while swimming",
+   "gold_image_id": "test_00218",
+   "rank": 1,
+   "gold_score": 0.3609,
+   "top_image_id": "test_00218",
+   "top_score": 0.3609,
+   "category": "attribute"
+  },
+  {
+   "query_id": "q033",
+   "query_text": "three youngsters playing in beach sand",
+   "gold_image_id": "test_00078",
+   "rank": 4,
+   "gold_score": 0.314,
+   "top_image_id": "train_05147",
+   "top_score": 0.3422,
+   "category": "counting"
+  },
+  {
+   "query_id": "q034",
+   "query_text": "three men assembling a sledge on snow",
+   "gold_image_id": "test_00465",
+   "rank": 4,
+   "gold_score": 0.3095,
+   "top_image_id": "train_04380",
+   "top_score": 0.3345,
+   "category": "counting"
+  },
+  {
+   "query_id": "q035",
+   "query_text": "three men gazing into the distance",
+   "gold_image_id": "test_00044",
+   "rank": 3,
+   "gold_score": 0.2894,
+   "top_image_id": "train_05912",
+   "top_score": 0.293,
+   "category": "counting"
+  },
+  {
+   "query_id": "q036",
+   "query_text": "two boys eating ice lollies",
+   "gold_image_id": "test_00090",
+   "rank": 2,
+   "gold_score": 0.3265,
+   "top_image_id": "train_04108",
+   "top_score": 0.351,
+   "category": "counting"
+  },
+  {
+   "query_id": "q037",
+   "query_text": "two dogs tumbling over each other among leaves",
+   "gold_image_id": "test_00143",
+   "rank": 60,
+   "gold_score": 0.2994,
+   "top_image_id": "train_04329",
+   "top_score": 0.3502,
+   "category": "counting"
+  },
+  {
+   "query_id": "q038",
+   "query_text": "two small girls playing together",
+   "gold_image_id": "test_00151",
+   "rank": 3,
+   "gold_score": 0.3205,
+   "top_image_id": "train_03986",
+   "top_score": 0.3276,
+   "category": "counting"
+  },
+  {
+   "query_id": "q039",
+   "query_text": "four or more swimmers heading toward a bridge",
+   "gold_image_id": "test_00783",
+   "rank": 39,
+   "gold_score": 0.2785,
+   "top_image_id": "train_00252",
+   "top_score": 0.3144,
+   "category": "counting"
+  },
+  {
+   "query_id": "q040",
+   "query_text": "one dog running past another beside patio chairs",
+   "gold_image_id": "test_00116",
+   "rank": 1,
+   "gold_score": 0.3116,
+   "top_image_id": "test_00116",
+   "top_score": 0.3116,
+   "category": "spatial"
+  },
+  {
+   "query_id": "q041",
+   "query_text": "a person suspended from a pole with mountains behind",
+   "gold_image_id": "test_00688",
+   "rank": 7,
+   "gold_score": 0.3102,
+   "top_image_id": "test_00236",
+   "top_score": 0.3219,
+   "category": "spatial"
+  },
+  {
+   "query_id": "q042",
+   "query_text": "a boy standing up on a railing",
+   "gold_image_id": "test_00967",
+   "rank": 1671,
+   "gold_score": 0.2247,
+   "top_image_id": "validation_00729",
+   "top_score": 0.3247,
+   "category": "spatial"
+  },
+  {
+   "query_id": "q043",
+   "query_text": "a child asleep stretched across two chairs",
+   "gold_image_id": "test_00460",
+   "rank": 26,
+   "gold_score": 0.2762,
+   "top_image_id": "train_04232",
+   "top_score": 0.3295,
+   "category": "spatial"
+  },
+  {
+   "query_id": "q044",
+   "query_text": "one climber seated on rock above the sea while another ascends",
+   "gold_image_id": "test_00792",
+   "rank": 2,
+   "gold_score": 0.3379,
+   "top_image_id": "train_03825",
+   "top_score": 0.34,
+   "category": "spatial"
+  },
+  {
+   "query_id": "q045",
+   "query_text": "men on the shore with a boat out on the water",
+   "gold_image_id": "test_00215",
+   "rank": 203,
+   "gold_score": 0.2282,
+   "top_image_id": "train_02055",
+   "top_score": 0.2998,
+   "category": "spatial"
+  },
+  {
+   "query_id": "q046",
+   "query_text": "a cyclist in a blue helmet with feet up on the handlebars",
+   "gold_image_id": "test_00774",
+   "rank": 35,
+   "gold_score": 0.2931,
+   "top_image_id": "train_00037",
+   "top_score": 0.3393,
+   "category": "compositional"
+  },
+  {
+   "query_id": "q047",
+   "query_text": "a large brown dog chasing a smaller white one on grass",
+   "gold_image_id": "test_00382",
+   "rank": 35,
+   "gold_score": 0.3492,
+   "top_image_id": "train_05032",
+   "top_score": 0.3774,
+   "category": "compositional"
+  },
+  {
+   "query_id": "q048",
+   "query_text": "a man and a golden dog together on sand",
+   "gold_image_id": "test_00866",
+   "rank": 12,
+   "gold_score": 0.2957,
+   "top_image_id": "train_00739",
+   "top_score": 0.31,
+   "category": "compositional"
+  },
+  {
+   "query_id": "q049",
+   "query_text": "a racing dog wearing a numbered bib",
+   "gold_image_id": "test_00838",
+   "rank": 24,
+   "gold_score": 0.3272,
+   "top_image_id": "train_03719",
+   "top_score": 0.3484,
+   "category": "compositional"
+  },
+  {
+   "query_id": "q050",
+   "query_text": "someone filming a skier performing a trick",
+   "gold_image_id": "test_00487",
+   "rank": 7,
+   "gold_score": 0.3001,
+   "top_image_id": "train_00452",
+   "top_score": 0.3196,
+   "category": "compositional"
+  },
+  {
+   "query_id": "q051",
+   "query_text": "a man gesturing toward a silver car",
+   "gold_image_id": "test_00202",
+   "rank": 10,
+   "gold_score": 0.2678,
+   "top_image_id": "train_05936",
+   "top_score": 0.2881,
+   "category": "compositional"
+  }
+ ]
+}
