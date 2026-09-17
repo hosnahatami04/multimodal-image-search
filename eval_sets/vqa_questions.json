@@ -1,0 +1,702 @@
+[
+ {
+  "question_id": "v001",
+  "image_id": "test_00008",
+  "question": "Is there a dog in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v002",
+  "image_id": "test_00008",
+  "question": "Is the dog carrying something in its mouth?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v003",
+  "image_id": "test_00731",
+  "question": "Is there a child in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v004",
+  "image_id": "test_00142",
+  "question": "Is the child wearing a helmet?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v005",
+  "image_id": "test_00142",
+  "question": "Is there a bicycle in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v006",
+  "image_id": "test_00210",
+  "question": "Are there motorcycles in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v007",
+  "image_id": "test_00658",
+  "question": "Is anyone wearing sunglasses?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v008",
+  "image_id": "test_00658",
+  "question": "Is there a car in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v009",
+  "image_id": "test_00855",
+  "question": "Is there a boat in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v010",
+  "image_id": "test_00730",
+  "question": "Is the woman holding a book?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v011",
+  "image_id": "test_00810",
+  "question": "Are the women wearing head scarves?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v012",
+  "image_id": "test_00854",
+  "question": "Is there a frisbee in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v013",
+  "image_id": "test_00928",
+  "question": "Is there a dumpster in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v014",
+  "image_id": "test_00595",
+  "question": "Is there a rock wall in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v015",
+  "image_id": "test_00764",
+  "question": "Are the stadium seats mostly empty?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v016",
+  "image_id": "test_00418",
+  "question": "Are the dogs wearing muzzles?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v017",
+  "image_id": "test_00158",
+  "question": "Is there playground equipment in this image?",
+  "answer": "yes",
+  "question_type": "object_presence"
+ },
+ {
+  "question_id": "v018",
+  "image_id": "test_00764",
+  "question": "How many people are sitting in the stadium?",
+  "answer": "2",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v019",
+  "image_id": "test_00210",
+  "question": "How many riders are on the track?",
+  "answer": "2",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v020",
+  "image_id": "test_00647",
+  "question": "How many women are in this image?",
+  "answer": "3",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v021",
+  "image_id": "test_00810",
+  "question": "How many women are in this image?",
+  "answer": "3",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v022",
+  "image_id": "test_00855",
+  "question": "How many men are in the boat?",
+  "answer": "2",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v023",
+  "image_id": "test_00418",
+  "question": "How many dogs are racing?",
+  "answer": "3",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v024",
+  "image_id": "test_00008",
+  "question": "How many dogs are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v025",
+  "image_id": "test_00854",
+  "question": "How many dogs are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v026",
+  "image_id": "test_00731",
+  "question": "How many girls are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v027",
+  "image_id": "test_00527",
+  "question": "How many children are jumping into the pool?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v028",
+  "image_id": "test_00142",
+  "question": "How many bicycles are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v029",
+  "image_id": "test_00347",
+  "question": "How many motorcycles are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v030",
+  "image_id": "test_00024",
+  "question": "How many cars are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v031",
+  "image_id": "test_00658",
+  "question": "How many people are in this image?",
+  "answer": "2",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v032",
+  "image_id": "test_00769",
+  "question": "How many people are in this image?",
+  "answer": "2",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v033",
+  "image_id": "test_00730",
+  "question": "How many people are in this image?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v034",
+  "image_id": "test_00595",
+  "question": "How many people are climbing?",
+  "answer": "1",
+  "question_type": "counting"
+ },
+ {
+  "question_id": "v035",
+  "image_id": "test_00764",
+  "question": "What colour are the ponchos?",
+  "answer": "green",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v036",
+  "image_id": "test_00731",
+  "question": "What colour is the girl's dress?",
+  "answer": "yellow",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v037",
+  "image_id": "test_00142",
+  "question": "What colour is the bike?",
+  "answer": "purple",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v038",
+  "image_id": "test_00142",
+  "question": "What colour is the helmet?",
+  "answer": "red",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v039",
+  "image_id": "test_00008",
+  "question": "What colour is the dog?",
+  "answer": "black",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v040",
+  "image_id": "test_00008",
+  "question": "What colour is the ball in the dog's mouth?",
+  "answer": "white",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v041",
+  "image_id": "test_00647",
+  "question": "What colour are the women wearing?",
+  "answer": "green",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v042",
+  "image_id": "test_00807",
+  "question": "What colour is the girl's dress?",
+  "answer": "blue",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v043",
+  "image_id": "test_00658",
+  "question": "What colour is the car?",
+  "answer": "red",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v044",
+  "image_id": "test_00632",
+  "question": "What colour are the chairs?",
+  "answer": "red",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v045",
+  "image_id": "test_00158",
+  "question": "What colour is the jungle gym?",
+  "answer": "red",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v046",
+  "image_id": "test_00158",
+  "question": "What colour is the boy's vest?",
+  "answer": "red",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v047",
+  "image_id": "test_00928",
+  "question": "What colour is the man's shirt?",
+  "answer": "white",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v048",
+  "image_id": "test_00595",
+  "question": "What colour is the climber's hat?",
+  "answer": "white",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v049",
+  "image_id": "test_00527",
+  "question": "What colour is the pool water?",
+  "answer": "blue",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v050",
+  "image_id": "test_00412",
+  "question": "What colour is the dog?",
+  "answer": "brown",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v051",
+  "image_id": "test_00854",
+  "question": "What colour is the dog?",
+  "answer": "white",
+  "question_type": "colour"
+ },
+ {
+  "question_id": "v052",
+  "image_id": "test_00658",
+  "question": "Is the car behind the people?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v053",
+  "image_id": "test_00764",
+  "question": "Are the two people surrounded by empty seats?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v054",
+  "image_id": "test_00855",
+  "question": "Is one man sitting in front of the other?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v055",
+  "image_id": "test_00008",
+  "question": "Is the dog coming out of the water?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v056",
+  "image_id": "test_00807",
+  "question": "Is the girl inside the tube?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v057",
+  "image_id": "test_00854",
+  "question": "Is the dog above the ground?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v058",
+  "image_id": "test_00854",
+  "question": "Is the dog underwater?",
+  "answer": "no",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v059",
+  "image_id": "test_00527",
+  "question": "Is the boy above the water?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v060",
+  "image_id": "test_00769",
+  "question": "Is the skier next to a tree?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v061",
+  "image_id": "test_00289",
+  "question": "Is the man standing behind a desk?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v062",
+  "image_id": "test_00730",
+  "question": "Is the woman sitting on a doorstep?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v063",
+  "image_id": "test_00928",
+  "question": "Is the man next to a dumpster?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v064",
+  "image_id": "test_00632",
+  "question": "Is there an empty chair in the foreground?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v065",
+  "image_id": "test_00720",
+  "question": "Are the people sitting on a table?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v066",
+  "image_id": "test_00210",
+  "question": "Are the two riders next to each other?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v067",
+  "image_id": "test_00024",
+  "question": "Is the car in a puddle?",
+  "answer": "yes",
+  "question_type": "spatial"
+ },
+ {
+  "question_id": "v068",
+  "image_id": "test_00731",
+  "question": "What is the girl doing?",
+  "answer": "blowing a whistle",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v069",
+  "image_id": "test_00527",
+  "question": "What is the boy doing?",
+  "answer": "jumping",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v070",
+  "image_id": "test_00807",
+  "question": "What is the girl doing?",
+  "answer": "sliding",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v071",
+  "image_id": "test_00595",
+  "question": "What is the person doing?",
+  "answer": "climbing",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v072",
+  "image_id": "test_00730",
+  "question": "What is the woman doing?",
+  "answer": "reading",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v073",
+  "image_id": "test_00928",
+  "question": "What is the man doing?",
+  "answer": "smoking",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v074",
+  "image_id": "test_00855",
+  "question": "What are the men doing?",
+  "answer": "rowing",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v075",
+  "image_id": "test_00854",
+  "question": "What is the dog doing?",
+  "answer": "jumping",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v076",
+  "image_id": "test_00412",
+  "question": "What is the dog doing?",
+  "answer": "running",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v077",
+  "image_id": "test_00418",
+  "question": "What are the dogs doing?",
+  "answer": "racing",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v078",
+  "image_id": "test_00347",
+  "question": "What is the man doing?",
+  "answer": "wheelie",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v079",
+  "image_id": "test_00210",
+  "question": "What are the riders doing?",
+  "answer": "racing",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v080",
+  "image_id": "test_00142",
+  "question": "What is the child doing?",
+  "answer": "riding a bike",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v081",
+  "image_id": "test_00158",
+  "question": "What is the boy doing?",
+  "answer": "playing",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v082",
+  "image_id": "test_00289",
+  "question": "What is the man doing?",
+  "answer": "demonstrating",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v083",
+  "image_id": "test_00769",
+  "question": "What is the man with the camera doing?",
+  "answer": "filming",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v084",
+  "image_id": "test_00008",
+  "question": "What is the dog doing?",
+  "answer": "walking",
+  "question_type": "action"
+ },
+ {
+  "question_id": "v085",
+  "image_id": "test_00632",
+  "question": "Is this indoors or outdoors?",
+  "answer": "indoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v086",
+  "image_id": "test_00764",
+  "question": "Where is this taking place?",
+  "answer": "stadium",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v087",
+  "image_id": "test_00008",
+  "question": "Where is the dog?",
+  "answer": "beach",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v088",
+  "image_id": "test_00855",
+  "question": "Where are the men?",
+  "answer": "river",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v089",
+  "image_id": "test_00210",
+  "question": "What kind of track is this?",
+  "answer": "dirt",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v090",
+  "image_id": "test_00527",
+  "question": "Where is the boy jumping?",
+  "answer": "pool",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v091",
+  "image_id": "test_00158",
+  "question": "Is this indoors or outdoors?",
+  "answer": "outdoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v092",
+  "image_id": "test_00810",
+  "question": "Is this indoors or outdoors?",
+  "answer": "outdoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v093",
+  "image_id": "test_00928",
+  "question": "Is this indoors or outdoors?",
+  "answer": "outdoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v094",
+  "image_id": "test_00730",
+  "question": "Is this indoors or outdoors?",
+  "answer": "outdoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v095",
+  "image_id": "test_00595",
+  "question": "Is this indoors or outdoors?",
+  "answer": "outdoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v096",
+  "image_id": "test_00024",
+  "question": "What kind of road is the car on?",
+  "answer": "dirt",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v097",
+  "image_id": "test_00412",
+  "question": "What surface is the dog running on?",
+  "answer": "gravel",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v098",
+  "image_id": "test_00769",
+  "question": "Is there snow in this image?",
+  "answer": "yes",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v099",
+  "image_id": "test_00647",
+  "question": "Is this indoors or outdoors?",
+  "answer": "outdoors",
+  "question_type": "scene"
+ },
+ {
+  "question_id": "v100",
+  "image_id": "test_00854",
+  "question": "What surface is the dog on?",
+  "answer": "grass",
+  "question_type": "scene"
+ }
+]

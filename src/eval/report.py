@@ -157,6 +157,61 @@ def _retrieval_section(data: dict | None, false_negatives: dict | None) -> list[
     return lines
 
 
+def _vqa_section(data: dict | None) -> list[str]:
+    if not data:
+        return []
+
+    lines = [
+        "## Visual question answering",
+        "",
+        f"{data['n']} questions written by hand over "
+        f"{len({o['image_id'] for o in data['outcomes']})} held-out images, each sourced from what",
+        "the image's five annotators collectively establish rather than from one",
+        "caption's wording.",
+        "",
+        "| Measure | Value |",
+        "|---|---|",
+        f"| Accuracy | **{data['accuracy']:.3f}** |",
+        f"| Exact string match only | {data['exact_accuracy']:.3f} |",
+        f"| Rescued by answer normalisation | {data['rescued_by_normalisation']} answers |",
+        f"| Seconds per question (CPU) | {data['seconds_per_question']:.2f} |",
+        "",
+        f"The gap between {data['accuracy']:.3f} and {data['exact_accuracy']:.3f} is what exact string",
+        'matching would have thrown away: "two" scored against "2", "a dog" against',
+        '"dog". That is formatting, not vision, and counting it as error would',
+        "misattribute the loss.",
+        "",
+        "### By question type",
+        "",
+        "This is the table the repository exists for. One averaged accuracy",
+        "describes none of these categories.",
+        "",
+        "| Question type | n | Accuracy | Most common wrong answer |",
+        "|---|---|---|---|",
+    ]
+
+    for name, stats in sorted(data["by_type"].items(), key=lambda item: -item[1]["accuracy"]):
+        wrong = stats.get("most_common_wrong")
+        wrong_text = f"`{wrong[0]}` (x{wrong[1]})" if wrong else "--"
+        lines.append(
+            f"| {name.replace('_', ' ')} | {stats['n']} | {stats['accuracy']:.3f} | {wrong_text} |"
+        )
+
+    gold_yes = data["binary_gold_yes_rate"]
+    model_yes = data["binary_predicted_yes_rate"]
+    lines += [
+        "",
+        f"On binary questions the gold answer is yes {gold_yes:.0%} of the time and the model",
+        f"answers yes {model_yes:.0%} of the time. A model that simply always said yes would",
+        f"score {gold_yes:.0%} on them, so that comparison is what separates seeing from",
+        "guessing.",
+        "",
+        "![vqa accuracy](vqa_by_type.png)",
+        "",
+    ]
+    return lines
+
+
 def _hard_negative_section(data: dict | None) -> list[str]:
     if not data:
         return []
@@ -242,6 +297,7 @@ def build() -> str:
     lines += _space_section(_load("embedding_space.json"))
     lines += _retrieval_section(_load("retrieval.json"), _load("false_negatives.json"))
     lines += _hard_negative_section(_load("hard_negatives.json"))
+    lines += _vqa_section(_load("vqa.json"))
     lines += _latency_section(_load("latency.json"))
 
     return "\n".join(lines)

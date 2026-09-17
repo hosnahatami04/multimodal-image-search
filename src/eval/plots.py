@@ -9,6 +9,9 @@ Three plots, each answering a question that a table of numbers answers badly:
 * **Recall by category** -- one averaged Recall hides which kinds of language
   the model cannot handle. Bars side by side make the counting and
   compositional weaknesses immediate.
+* **VQA accuracy by question type** -- the headline table of the project, drawn
+  so the spread between the strongest and weakest category is visible at a
+  glance rather than read off seven rows.
 * **Latency distribution** -- a p50 and a p95 are two points on a shape. The
   shape says whether the tail is a long drift or a few outliers.
 
@@ -181,6 +184,75 @@ def plot_recall_by_category() -> str:
     return str(output.name)
 
 
+def plot_vqa_by_type() -> str:
+    """Horizontal bars of VQA accuracy per question type.
+
+    Horizontal rather than vertical because the category names are long, and
+    sorted by accuracy because the ordering is the finding -- which kinds of
+    question the model handles and which it does not.
+    """
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    data = json.loads((config.RESULTS_DIR / "vqa.json").read_text(encoding="utf-8"))
+    by_type = data["by_type"]
+
+    names = sorted(by_type, key=lambda name: by_type[name]["accuracy"])
+    values = [by_type[name]["accuracy"] for name in names]
+    counts = [by_type[name]["n"] for name in names]
+
+    # One hue, varied by value: the categories are not separate series, they
+    # are one measurement across seven conditions.
+    colours = [(OWN_COLOUR if value >= data["accuracy"] else RANDOM_COLOUR) for value in values]
+
+    figure, axis = plt.subplots(figsize=(8.0, 4.0), dpi=150)
+    positions = np.arange(len(names))
+    axis.barh(positions, values, height=0.6, color=colours)
+
+    for position, (value, count) in enumerate(zip(values, counts, strict=True)):
+        axis.text(
+            value + 0.015,
+            position,
+            f"{value:.2f}  (n={count})",
+            va="center",
+            fontsize=9.5,
+            color="#151a21",
+        )
+
+    axis.axvline(
+        data["accuracy"],
+        color="#4a5568",
+        linewidth=1.3,
+        linestyle="--",
+    )
+    axis.annotate(
+        f"overall {data['accuracy']:.2f}",
+        xy=(data["accuracy"], len(names) - 0.3),
+        xytext=(4, 0),
+        textcoords="offset points",
+        fontsize=9,
+        color="#4a5568",
+    )
+
+    axis.set_yticks(positions)
+    axis.set_yticklabels([name.replace("_", " ") for name in names], fontsize=10)
+    axis.set_xlim(0, 1.15)
+    axis.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
+    axis.set_xlabel("accuracy", fontsize=10)
+    axis.set_title(f"VQA accuracy by question type  ({data['n']} questions)", fontsize=11.5, pad=12)
+    _style(axis)
+    axis.grid(axis="x", color=GRID, linewidth=0.6, alpha=0.7)
+    axis.grid(axis="y", visible=False)
+
+    output = config.RESULTS_DIR / "vqa_by_type.png"
+    figure.tight_layout()
+    figure.savefig(output, bbox_inches="tight")
+    plt.close(figure)
+    return str(output.name)
+
+
 def plot_latency() -> str:
     """Show where the time goes, and the shape of the tail."""
     import matplotlib
@@ -251,6 +323,12 @@ def main(argv: list[str] | None = None) -> int:
         logger.info("wrote %s", plot_alignment(sample=args.sample))
 
     logger.info("wrote %s", plot_recall_by_category())
+
+    if (config.RESULTS_DIR / "vqa.json").exists():
+        logger.info("wrote %s", plot_vqa_by_type())
+    else:
+        logger.warning("vqa.json missing; skipping the VQA figure")
+
     logger.info("wrote %s", plot_latency())
     return 0
 
