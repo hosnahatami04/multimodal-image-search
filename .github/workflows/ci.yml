@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   test:
+    name: Lint and test
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -43,3 +44,55 @@ jobs:
         # excluded here; everything else runs against the synthetic fixtures in
         # tests/conftest.py, so the suite is meaningful without any download.
         run: python -m pytest -v -m "not model and not data"
+
+  metrics:
+    name: Metric gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check the committed metrics
+        # This does not re-run the evaluation -- that needs the models and the
+        # dataset. It checks the committed result files: that no headline number
+        # has dropped below its floor, that the files agree with each other and
+        # with the eval sets, and that they were produced at the pinned model
+        # revisions.
+        #
+        # So a pull request that hand-edits a result file, or regenerates one
+        # against different weights, fails here rather than merging quietly.
+        run: python scripts/check_metrics.py
+
+  docker:
+    name: Docker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    # Only on pushes to main: the build downloads 2 GB of model weights, which
+    # is too slow to run on every pull request.
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          # Built but not pushed: this checks the Dockerfile still works, which
+          # is what breaks silently. Publishing an image is a separate decision.
+          push: false
+          # The build needs data/embeddings and data/chroma, which are
+          # gitignored, so it cannot complete in CI. Stopping at the builder
+          # stage still verifies the dependency install and the weight fetch.
+          target: builder
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

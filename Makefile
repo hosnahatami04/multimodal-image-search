@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------
 PYTHON ?= python
 
-.PHONY: help install fetch fetch-blip download stats agreement check-clip encode space search smoke queries eval hard-negatives latency vqa-questions vqa failures plots report evaluate test test-all lint format clean-index clean
+.PHONY: help install fetch fetch-blip download stats agreement check-clip encode space search smoke queries eval hard-negatives latency vqa-questions vqa failures plots report evaluate serve check docker-build docker-run test test-all lint format clean-index clean
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -77,6 +77,18 @@ report:  ## Regenerate results/report.md from the committed result files
 	$(PYTHON) -m src.eval.report
 
 evaluate: queries eval hard-negatives latency vqa-questions vqa failures plots report  ## Run the whole evaluation
+
+serve:  ## Run the API locally -- http://127.0.0.1:8000/docs
+	$(PYTHON) -m uvicorn src.api:app --reload
+
+check:  ## Verify the committed metrics have not regressed (what CI gates on)
+	$(PYTHON) scripts/check_metrics.py
+
+docker-build:  ## Build the container image (needs data/embeddings and data/chroma)
+	docker build -t multimodal-search .
+
+docker-run:  ## Run the container -- http://localhost:8000/docs
+	docker run --rm -p 8000:8000 multimodal-search
 
 test:  ## Run the tests that need no model weights or dataset (what CI runs)
 	$(PYTHON) -m pytest -q -m "not model and not data"
