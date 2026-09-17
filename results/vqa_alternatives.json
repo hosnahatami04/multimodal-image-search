@@ -1,0 +1,225 @@
+{
+ "summary": {
+  "open_ended_types": [
+   "action",
+   "colour",
+   "scene"
+  ],
+  "min_annotators": 2,
+  "wrong_open_ended": 16,
+  "defensible": 4,
+  "strict_accuracy": 0.79,
+  "lenient_accuracy": 0.83,
+  "strict_by_type": {
+   "action": 0.4118,
+   "colour": 0.7647,
+   "counting": 0.8824,
+   "object_presence": 0.9412,
+   "scene": 0.875,
+   "spatial": 0.875
+  },
+  "lenient_by_type": {
+   "action": 0.5882,
+   "colour": 0.8235,
+   "counting": 0.8824,
+   "object_presence": 0.9412,
+   "scene": 0.875,
+   "spatial": 0.875
+  }
+ },
+ "alternatives": [
+  {
+   "question_id": "v042",
+   "image_id": "test_00807",
+   "question": "What colour is the girl's dress?",
+   "question_type": "colour",
+   "gold": "blue",
+   "predicted": "white",
+   "supporting_annotators": 1,
+   "matched_words": [
+    "white"
+   ],
+   "defensible": false
+  },
+  {
+   "question_id": "v044",
+   "image_id": "test_00632",
+   "question": "What colour are the chairs?",
+   "question_type": "colour",
+   "gold": "red",
+   "predicted": "brown",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v046",
+   "image_id": "test_00158",
+   "question": "What colour is the boy's vest?",
+   "question_type": "colour",
+   "gold": "red",
+   "predicted": "brown",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v050",
+   "image_id": "test_00412",
+   "question": "What colour is the dog?",
+   "question_type": "colour",
+   "gold": "brown",
+   "predicted": "black and white",
+   "supporting_annotators": 2,
+   "matched_words": [
+    "black",
+    "white"
+   ],
+   "defensible": true
+  },
+  {
+   "question_id": "v068",
+   "image_id": "test_00731",
+   "question": "What is the girl doing?",
+   "question_type": "action",
+   "gold": "blowing a whistle",
+   "predicted": "talking on phone",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v069",
+   "image_id": "test_00527",
+   "question": "What is the boy doing?",
+   "question_type": "action",
+   "gold": "jumping",
+   "predicted": "diving",
+   "supporting_annotators": 2,
+   "matched_words": [
+    "div"
+   ],
+   "defensible": true
+  },
+  {
+   "question_id": "v070",
+   "image_id": "test_00807",
+   "question": "What is the girl doing?",
+   "question_type": "action",
+   "gold": "sliding",
+   "predicted": "smiling",
+   "supporting_annotators": 2,
+   "matched_words": [
+    "smil"
+   ],
+   "defensible": true
+  },
+  {
+   "question_id": "v073",
+   "image_id": "test_00928",
+   "question": "What is the man doing?",
+   "question_type": "action",
+   "gold": "smoking",
+   "predicted": "looking at phone",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v075",
+   "image_id": "test_00854",
+   "question": "What is the dog doing?",
+   "question_type": "action",
+   "gold": "jumping",
+   "predicted": "catching frisbee",
+   "supporting_annotators": 5,
+   "matched_words": [
+    "catch"
+   ],
+   "defensible": true
+  },
+  {
+   "question_id": "v078",
+   "image_id": "test_00347",
+   "question": "What is the man doing?",
+   "question_type": "action",
+   "gold": "wheelie",
+   "predicted": "riding motorcycle",
+   "supporting_annotators": 1,
+   "matched_words": [
+    "rid"
+   ],
+   "defensible": false
+  },
+  {
+   "question_id": "v081",
+   "image_id": "test_00158",
+   "question": "What is the boy doing?",
+   "question_type": "action",
+   "gold": "playing",
+   "predicted": "climbing",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v082",
+   "image_id": "test_00289",
+   "question": "What is the man doing?",
+   "question_type": "action",
+   "gold": "demonstrating",
+   "predicted": "cooking",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v083",
+   "image_id": "test_00769",
+   "question": "What is the man with the camera doing?",
+   "question_type": "action",
+   "gold": "filming",
+   "predicted": "taking picture",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v084",
+   "image_id": "test_00008",
+   "question": "What is the dog doing?",
+   "question_type": "action",
+   "gold": "walking",
+   "predicted": "playing",
+   "supporting_annotators": 0,
+   "matched_words": [],
+   "defensible": false
+  },
+  {
+   "question_id": "v088",
+   "image_id": "test_00855",
+   "question": "Where are the men?",
+   "question_type": "scene",
+   "gold": "river",
+   "predicted": "in boat",
+   "supporting_annotators": 1,
+   "matched_words": [
+    "boat"
+   ],
+   "defensible": false
+  },
+  {
+   "question_id": "v097",
+   "image_id": "test_00412",
+   "question": "What surface is the dog running on?",
+   "question_type": "scene",
+   "gold": "gravel",
+   "predicted": "sand",
+   "supporting_annotators": 1,
+   "matched_words": [
+    "sand"
+   ],
+   "defensible": false
+  }
+ ]
+}

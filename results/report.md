@@ -1,6 +1,6 @@
 # Evaluation report
 
-Generated 2026-09-16 from the files in `results/`.
+Generated 2026-09-17 from the files in `results/`.
 Model `openai/clip-vit-base-patch32` at revision `3d74acf9a28c`,
 dataset `jxie/flickr8k` at `56f58c967835`.
 
@@ -121,6 +121,45 @@ set removes the thousands of unrelated images that could outrank the target
 by accident. What the gap measures is how much of the corpus-wide difficulty
 comes from sheer volume rather than from the near-duplicates -- and at this
 scale, most of it does.
+
+## Visual question answering
+
+100 questions written by hand over 24 held-out images, each sourced from what
+the image's five annotators collectively establish rather than from one
+caption's wording.
+
+| Measure | Value |
+|---|---|
+| Accuracy | **0.790** |
+| Exact string match only | 0.780 |
+| Rescued by answer normalisation | 1 answers |
+| Seconds per question (CPU) | 0.37 |
+
+The gap between 0.790 and 0.780 is what exact string
+matching would have thrown away: "two" scored against "2", "a dog" against
+"dog". That is formatting, not vision, and counting it as error would
+misattribute the loss.
+
+### By question type
+
+This is the table the repository exists for. One averaged accuracy
+describes none of these categories.
+
+| Question type | n | Accuracy | Most common wrong answer |
+|---|---|---|---|
+| object presence | 17 | 0.941 | `0` (x1) |
+| counting | 17 | 0.882 | `4` (x1) |
+| scene | 16 | 0.875 | `boat` (x1) |
+| spatial | 16 | 0.875 | `0` (x2) |
+| colour | 17 | 0.765 | `brown` (x2) |
+| action | 17 | 0.412 | `talking on phone` (x1) |
+
+On binary questions the gold answer is yes 97% of the time and the model
+answers yes 88% of the time. A model that simply always said yes would
+score 97% on them, so that comparison is what separates seeing from
+guessing.
+
+![vqa accuracy](vqa_by_type.png)
 
 ## Latency
 

@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------
 PYTHON ?= python
 
-.PHONY: help install fetch download stats agreement check-clip encode space search smoke queries eval hard-negatives latency plots report evaluate test test-all lint format clean-index clean
+.PHONY: help install fetch fetch-blip download stats agreement check-clip encode space search smoke queries eval hard-negatives latency vqa-questions vqa plots report evaluate test test-all lint format clean-index clean
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -46,6 +46,16 @@ smoke:  ## Run the manual smoke test over a fixed set of queries
 queries:  ## Write the retrieval query set
 	$(PYTHON) -m src.eval.build_queries
 
+vqa-questions:  ## Write the 100-question VQA evaluation set
+	$(PYTHON) -m src.vqa.build_questions
+
+vqa:  ## Answer the VQA question set and save results
+	$(PYTHON) -m src.eval.run_vqa --save
+	$(PYTHON) -m src.eval.vqa_alternatives --save
+
+fetch-blip:  ## Resumably fetch the BLIP weights (use when the Hub client stalls)
+	$(PYTHON) scripts/fetch_model.py --model Salesforce/blip-vqa-base
+
 eval:  ## Score the query set and save results
 	$(PYTHON) -m src.eval.run_retrieval --save
 	$(PYTHON) -m src.eval.false_negatives --save
@@ -62,7 +72,7 @@ plots:  ## Render the evaluation figures
 report:  ## Regenerate results/report.md from the committed result files
 	$(PYTHON) -m src.eval.report
 
-evaluate: queries eval hard-negatives latency plots report  ## Run the whole evaluation
+evaluate: queries eval hard-negatives latency vqa-questions vqa plots report  ## Run the whole evaluation
 
 test:  ## Run the tests that need no model weights or dataset (what CI runs)
 	$(PYTHON) -m pytest -q -m "not model and not data"
