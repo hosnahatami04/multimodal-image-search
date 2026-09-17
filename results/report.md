@@ -161,6 +161,156 @@ guessing.
 
 ![vqa accuracy](vqa_by_type.png)
 
+## Where retrieval fails, and why
+
+25 queries failed for real -- that is, the image the model
+returned was not merely a different photograph of the same thing. Reading them
+together, they are not 25 unrelated accidents.
+
+On average a failed query's returned image supports only **34%** of the query's content words.
+
+| Pattern | n | What it means |
+|---|---|---|
+| fragment match | 12 | the returned image supports a minority of the query's words |
+| constraint dropped | 9 | the head noun matched but its modifiers were ignored |
+| vocabulary gap | 4 | a query word appears in no caption in this corpus |
+
+**Fragment match** is the largest group and the most characteristic. CLIP
+compresses an entire query into one 512-dimensional vector *before* it sees any
+photograph, so a query carrying five constraints arrives as a blur of all five.
+The nearest image is then whichever one matches the strongest surviving concept.
+
+**Constraint dropped** is the same mechanism in a milder form: the head noun
+survives compression and its modifiers do not. "A rowing boat on open blue
+water" returns a motorboat on a waterway -- boat, water and blue are all
+present, and nothing in a single vector can say that "rowing" modifies
+"boat".
+
+**Vocabulary gap** is not a model failure and is reported separately for that
+reason. The query said *crimson*; no caption in this corpus uses that word, so
+there was no caption evidence to rank against. CLIP knows the word perfectly
+well -- it returned a girl in a red shirt who is skating, which is substantially
+correct. This is the cost of Phase 4's decision to rewrite queries rather than
+copy captions, and it is worth seeing rather than hiding.
+
+## Worked failure cases
+
+An accuracy table says how often the system is wrong. These say what being
+wrong looks like, which is what decides whether it is usable for a given
+problem.
+
+### Retrieval — fragment match
+
+![test_00460](failure_cases/test_00460.jpg)
+
+| | |
+|---|---|
+| **Asked** | a child asleep stretched across two chairs |
+| **Expected** | test_00460 at rank 1 |
+| **Produced** | train_04232 at rank 1; gold at rank 26 |
+
+*Captions:* A child in a black cap sleeping across two chairs .
+
+The query carries five constraints -- a child, asleep, stretched, across, two chairs -- and the returned image supports none of them. CLIP compresses the whole sentence into one 512-dimensional vector before it sees any photograph, and a vector that must simultaneously encode a posture, a count, a spatial relation and a piece of furniture ends up encoding none of them strongly. The nearest image is one that is vaguely about small children, which is what survives the compression.
+
+### Retrieval — fragment match
+
+![test_00783](failure_cases/test_00783.jpg)
+
+| | |
+|---|---|
+| **Asked** | four or more swimmers heading toward a bridge |
+| **Expected** | test_00783 at rank 1 |
+| **Produced** | train_00252 at rank 1; gold at rank 39 |
+
+*Captions:* At least 4 people swim in shallow water that grows deeps towards a bridge .
+
+"Four or more" is a quantity expressed as a range, and CLIP has no mechanism for either part: not for the exact count, and not for the comparison. What reaches the embedding is roughly "swimmers", so the model returns children in a pool. The Phase 5 contrast is the point here: BLIP answers counting questions at 0.88 on the same images, because it holds the question while looking rather than compressing it first.
+
+### Retrieval — vocabulary gap
+
+![test_00194](failure_cases/test_00194.jpg)
+
+| | |
+|---|---|
+| **Asked** | a skateboarder wearing a crimson top |
+| **Expected** | test_00194 at rank 1 |
+| **Produced** | train_02338 at rank 1; gold at rank 2 |
+
+*Captions:* A man in a red shirt is doing a trick with his skateboard .
+
+The query says crimson; every caption in the corpus that describes this colour says red. The model returned a girl in a red shirt who is skating -- which is, in substance, exactly right. This is not a model failure but a gap between the evaluation vocabulary and the corpus vocabulary, introduced by Phase 4's decision to rewrite queries rather than copy captions. That decision was correct and this is its cost, visible.
+
+### Retrieval — constraint dropped
+
+![test_00789](failure_cases/test_00789.jpg)
+
+| | |
+|---|---|
+| **Asked** | a rowing boat on open blue water |
+| **Expected** | test_00789 at rank 1 |
+| **Produced** | train_03347 at rank 1; gold at rank 5 |
+
+*Captions:* A man in a rowboat is rowing across blue water .
+
+The head noun matched and the modifiers did not: the returned image is a boat on water, but a motorboat driven past apartments rather than a rowing boat on open water. "Rowing" and "open" are both adjectival constraints on "boat", and CLIP's single vector cannot express that one concept modifies another. It sees boat, water, blue -- all present -- and ranks accordingly.
+
+### Visual QA — action
+
+![test_00731](failure_cases/test_00731.jpg)
+
+| | |
+|---|---|
+| **Asked** | What is the girl doing? |
+| **Expected** | blowing a whistle |
+| **Produced** | talking on phone |
+
+*Captions:* A girl blows a whistle .
+
+The model answered "talking on phone" for a girl blowing a whistle. Looking at the photograph explains it: the whistle is small, silver, and almost entirely hidden behind her fingers, and her hand is raised to her face in exactly the posture of someone holding a phone. The visible evidence -- a small bright object, a raised hand, a face turned toward it -- is genuinely shared between the two acts, and phones outnumber whistles in web training data by orders of magnitude. This is a prior overwhelming weak evidence rather than a perception error, and it recurs on a second image, which is what makes it a pattern.
+
+### Visual QA — action
+
+![test_00928](failure_cases/test_00928.jpg)
+
+| | |
+|---|---|
+| **Asked** | What is the man doing? |
+| **Expected** | smoking |
+| **Produced** | looking at phone |
+
+*Captions:* A man in a white restaraunt shirt smokes next to a dumpster .
+
+The second instance of the same failure, which is what makes it a pattern rather than an accident. A man lighting a cigarette becomes "looking at phone". Both cases involve a small object near the face, and in both the model reaches for the commonest explanation for that configuration in its training distribution. A product built on this would misreport smoking as phone use consistently, not occasionally.
+
+### Visual QA — counting
+
+![test_00418](failure_cases/test_00418.jpg)
+
+| | |
+|---|---|
+| **Asked** | How many dogs are racing? |
+| **Expected** | 3 |
+| **Produced** | 2 |
+
+*Captions:* A group of dogs racing .
+
+Every counting question with a gold answer of 1 or 2 was answered correctly -- fourteen of fourteen. Both errors are at 3, and both are off by exactly one. The model is not guessing: it is estimating, and its estimate degrades in a specific, bounded way as the count rises. That distinction matters for whether the capability is usable: "reliable up to two, approximate above" is a specification, where "0.88 accurate" is not.
+
+### Visual QA — colour
+
+![test_00632](failure_cases/test_00632.jpg)
+
+| | |
+|---|---|
+| **Asked** | What colour are the chairs? |
+| **Expected** | red |
+| **Produced** | brown |
+
+*Captions:* An empty seat at a Mexican themed restaurant .
+
+Red was read as brown twice, on different images and different objects (these restaurant chairs, and a boy's vest). A single colour error would be noise; the same confusion twice out of four colour errors is a systematic bias. The image shows why it is a defensible one: the chairs are stained wood under warm low restaurant lighting, and their pixels sit genuinely between red and brown. Five annotators called them red because they had the scene -- a red-walled Mexican restaurant -- to read the colour against. The model has only the pixels, and the pixels are ambiguous.
+
 ## Latency
 
 100 queries, k=10, 8,000 images, 12 CPU threads.

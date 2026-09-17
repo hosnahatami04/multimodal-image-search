@@ -1,0 +1,732 @@
+{
+ "summary": {
+  "num_failures": 25,
+  "mean_coverage": 0.3447,
+  "fragment_threshold": 0.34,
+  "vocabulary_gap_count": 1,
+  "by_pattern": {
+   "fragment_match": 12,
+   "constraint_dropped": 9,
+   "vocabulary_gap": 4
+  },
+  "by_category": {
+   "compositional": 4,
+   "action": 4,
+   "counting": 4,
+   "spatial": 4,
+   "attribute": 4,
+   "scene": 3,
+   "object": 2
+  },
+  "pattern_descriptions": {
+   "fragment_match": "the returned image supports a minority of the query's words",
+   "constraint_dropped": "the head noun matched but its modifiers were ignored",
+   "vocabulary_gap": "a query word appears in no caption in this corpus",
+   "unclear": "no single pattern fits"
+  }
+ },
+ "failures": [
+  {
+   "query_id": "q016",
+   "query_text": "a dog jumping to grab a rope toy",
+   "category": "action",
+   "rank": 78,
+   "gold_image_id": "test_00241",
+   "top_image_id": "test_00623",
+   "top_caption": "A brown and white Sheltie leaping over a rail .",
+   "query_words": [
+    "dog",
+    "grab",
+    "jumping",
+    "rope",
+    "toy"
+   ],
+   "covered_words": [
+    "dog",
+    "jumping"
+   ],
+   "missed_words": [
+    "grab",
+    "rope",
+    "toy"
+   ],
+   "coverage": 0.4,
+   "rarest_word": "grab",
+   "rarest_corpus_count": 18,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q027",
+   "query_text": "a dog wearing a blue garment on grass",
+   "category": "attribute",
+   "rank": 3,
+   "gold_image_id": "test_00617",
+   "top_image_id": "validation_00855",
+   "top_caption": "A fluffy white dog is coming out of a blue striped obstacle shute .",
+   "query_words": [
+    "blue",
+    "dog",
+    "garment",
+    "grass",
+    "wearing"
+   ],
+   "covered_words": [
+    "blue",
+    "dog"
+   ],
+   "missed_words": [
+    "garment",
+    "grass",
+    "wearing"
+   ],
+   "coverage": 0.4,
+   "rarest_word": "garment",
+   "rarest_corpus_count": 2,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q006",
+   "query_text": "a rowing boat on open blue water",
+   "category": "object",
+   "rank": 5,
+   "gold_image_id": "test_00789",
+   "top_image_id": "train_03347",
+   "top_caption": "A man drives a boat along a waterway lined with apartments .",
+   "query_words": [
+    "blue",
+    "boat",
+    "open",
+    "rowing",
+    "water"
+   ],
+   "covered_words": [
+    "blue",
+    "boat"
+   ],
+   "missed_words": [
+    "open",
+    "rowing",
+    "water"
+   ],
+   "coverage": 0.4,
+   "rarest_word": "rowing",
+   "rarest_corpus_count": 23,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q045",
+   "query_text": "men on the shore with a boat out on the water",
+   "category": "spatial",
+   "rank": 203,
+   "gold_image_id": "test_00215",
+   "top_image_id": "train_02055",
+   "top_caption": "A speed boat jumps over waves in the water .",
+   "query_words": [
+    "boat",
+    "men",
+    "shore",
+    "water"
+   ],
+   "covered_words": [
+    "boat",
+    "water"
+   ],
+   "missed_words": [
+    "men",
+    "shore"
+   ],
+   "coverage": 0.5,
+   "rarest_word": "boat",
+   "rarest_corpus_count": 111,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q021",
+   "query_text": "a large crowd at an outdoor gathering",
+   "category": "scene",
+   "rank": 6,
+   "gold_image_id": "test_00609",
+   "top_image_id": "validation_00283",
+   "top_caption": "A crowd gathered at an ice skating park in the winter .",
+   "query_words": [
+    "crowd",
+    "gathering",
+    "large",
+    "outdoor"
+   ],
+   "covered_words": [
+    "crowd",
+    "large"
+   ],
+   "missed_words": [
+    "gathering",
+    "outdoor"
+   ],
+   "coverage": 0.5,
+   "rarest_word": "gathering",
+   "rarest_corpus_count": 22,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q048",
+   "query_text": "a man and a golden dog together on sand",
+   "category": "compositional",
+   "rank": 12,
+   "gold_image_id": "test_00866",
+   "top_image_id": "train_00739",
+   "top_caption": "A brown dog running on the beach near the ocean .",
+   "query_words": [
+    "dog",
+    "golden",
+    "man",
+    "sand",
+    "together"
+   ],
+   "covered_words": [
+    "dog",
+    "golden",
+    "sand"
+   ],
+   "missed_words": [
+    "man",
+    "together"
+   ],
+   "coverage": 0.6,
+   "rarest_word": "golden",
+   "rarest_corpus_count": 87,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q033",
+   "query_text": "three youngsters playing in beach sand",
+   "category": "counting",
+   "rank": 4,
+   "gold_image_id": "test_00078",
+   "top_image_id": "train_05147",
+   "top_caption": "Three children are playing soccer in the sand .",
+   "query_words": [
+    "beach",
+    "playing",
+    "sand",
+    "three",
+    "youngsters"
+   ],
+   "covered_words": [
+    "playing",
+    "sand",
+    "three"
+   ],
+   "missed_words": [
+    "beach",
+    "youngsters"
+   ],
+   "coverage": 0.6,
+   "rarest_word": "youngsters",
+   "rarest_corpus_count": 3,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q030",
+   "query_text": "a man in red trunks jumping onto a board",
+   "category": "attribute",
+   "rank": 9,
+   "gold_image_id": "test_00946",
+   "top_image_id": "train_03666",
+   "top_caption": "A man in red shorts jumping in back of a volleyball net .",
+   "query_words": [
+    "board",
+    "jumping",
+    "man",
+    "onto",
+    "red",
+    "trunks"
+   ],
+   "covered_words": [
+    "jumping",
+    "man",
+    "red",
+    "trunks"
+   ],
+   "missed_words": [
+    "board",
+    "onto"
+   ],
+   "coverage": 0.6667,
+   "rarest_word": "trunks",
+   "rarest_corpus_count": 64,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q042",
+   "query_text": "a boy standing up on a railing",
+   "category": "spatial",
+   "rank": 1671,
+   "gold_image_id": "test_00967",
+   "top_image_id": "validation_00729",
+   "top_caption": "A child looks at a guard in red uniform from the other side of a fence",
+   "query_words": [
+    "boy",
+    "railing",
+    "standing"
+   ],
+   "covered_words": [
+    "boy",
+    "standing"
+   ],
+   "missed_words": [
+    "railing"
+   ],
+   "coverage": 0.6667,
+   "rarest_word": "railing",
+   "rarest_corpus_count": 76,
+   "pattern": "constraint_dropped"
+  },
+  {
+   "query_id": "q043",
+   "query_text": "a child asleep stretched across two chairs",
+   "category": "spatial",
+   "rank": 26,
+   "gold_image_id": "test_00460",
+   "top_image_id": "train_04232",
+   "top_caption": "A baby plays with a young boys face .",
+   "query_words": [
+    "asleep",
+    "chairs",
+    "child",
+    "stretched",
+    "two"
+   ],
+   "covered_words": [],
+   "missed_words": [
+    "asleep",
+    "chairs",
+    "child",
+    "stretched",
+    "two"
+   ],
+   "coverage": 0.0,
+   "rarest_word": "stretched",
+   "rarest_corpus_count": 10,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q039",
+   "query_text": "four or more swimmers heading toward a bridge",
+   "category": "counting",
+   "rank": 39,
+   "gold_image_id": "test_00783",
+   "top_image_id": "train_00252",
+   "top_caption": "Children playing in a pool .",
+   "query_words": [
+    "bridge",
+    "four",
+    "heading",
+    "more",
+    "swimmers",
+    "toward"
+   ],
+   "covered_words": [
+    "swimmers"
+   ],
+   "missed_words": [
+    "bridge",
+    "four",
+    "heading",
+    "more",
+    "toward"
+   ],
+   "coverage": 0.1667,
+   "rarest_word": "more",
+   "rarest_corpus_count": 5,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q041",
+   "query_text": "a person suspended from a pole with mountains behind",
+   "category": "spatial",
+   "rank": 7,
+   "gold_image_id": "test_00688",
+   "top_image_id": "test_00236",
+   "top_caption": "a girl in a pink top is swinging with her hair flying everywhere .",
+   "query_words": [
+    "behind",
+    "mountains",
+    "person",
+    "pole",
+    "suspended"
+   ],
+   "covered_words": [
+    "behind"
+   ],
+   "missed_words": [
+    "mountains",
+    "person",
+    "pole",
+    "suspended"
+   ],
+   "coverage": 0.2,
+   "rarest_word": "suspended",
+   "rarest_corpus_count": 25,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q046",
+   "query_text": "a cyclist in a blue helmet with feet up on the handlebars",
+   "category": "compositional",
+   "rank": 35,
+   "gold_image_id": "test_00774",
+   "top_image_id": "train_00037",
+   "top_caption": "A bearded man wearing a bandanna is pointing his finger whilst riding a bicycle .",
+   "query_words": [
+    "blue",
+    "cyclist",
+    "feet",
+    "handlebars",
+    "helmet"
+   ],
+   "covered_words": [
+    "blue"
+   ],
+   "missed_words": [
+    "cyclist",
+    "feet",
+    "handlebars",
+    "helmet"
+   ],
+   "coverage": 0.2,
+   "rarest_word": "handlebars",
+   "rarest_corpus_count": 8,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q049",
+   "query_text": "a racing dog wearing a numbered bib",
+   "category": "compositional",
+   "rank": 24,
+   "gold_image_id": "test_00838",
+   "top_image_id": "train_03719",
+   "top_caption": "A dog catching a Frisbee with onlookers in the background .",
+   "query_words": [
+    "bib",
+    "dog",
+    "numbered",
+    "racing",
+    "wearing"
+   ],
+   "covered_words": [
+    "dog"
+   ],
+   "missed_words": [
+    "bib",
+    "numbered",
+    "racing",
+    "wearing"
+   ],
+   "coverage": 0.2,
+   "rarest_word": "bib",
+   "rarest_corpus_count": 5,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q051",
+   "query_text": "a man gesturing toward a silver car",
+   "category": "compositional",
+   "rank": 10,
+   "gold_image_id": "test_00202",
+   "top_image_id": "train_05936",
+   "top_caption": "A man is helping a young girl off a ride at an amusement park .",
+   "query_words": [
+    "car",
+    "gesturing",
+    "man",
+    "silver",
+    "toward"
+   ],
+   "covered_words": [
+    "man"
+   ],
+   "missed_words": [
+    "car",
+    "gesturing",
+    "silver",
+    "toward"
+   ],
+   "coverage": 0.2,
+   "rarest_word": "gesturing",
+   "rarest_corpus_count": 4,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q026",
+   "query_text": "an elderly man in a bright red cap",
+   "category": "attribute",
+   "rank": 2,
+   "gold_image_id": "test_00445",
+   "top_image_id": "train_02660",
+   "top_caption": "A man in a pink shirt and sunglasses is sitting in the sun .",
+   "query_words": [
+    "bright",
+    "cap",
+    "elderly",
+    "man",
+    "red"
+   ],
+   "covered_words": [
+    "man"
+   ],
+   "missed_words": [
+    "bright",
+    "cap",
+    "elderly",
+    "red"
+   ],
+   "coverage": 0.2,
+   "rarest_word": "elderly",
+   "rarest_corpus_count": 63,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q018",
+   "query_text": "calm water under an evening sky",
+   "category": "scene",
+   "rank": 40,
+   "gold_image_id": "test_00131",
+   "top_image_id": "train_02097",
+   "top_caption": "Two people sit on a dock near the water .",
+   "query_words": [
+    "calm",
+    "evening",
+    "sky",
+    "water"
+   ],
+   "covered_words": [
+    "water"
+   ],
+   "missed_words": [
+    "calm",
+    "evening",
+    "sky"
+   ],
+   "coverage": 0.25,
+   "rarest_word": "evening",
+   "rarest_corpus_count": 8,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q035",
+   "query_text": "three men gazing into the distance",
+   "category": "counting",
+   "rank": 3,
+   "gold_image_id": "test_00044",
+   "top_image_id": "train_05912",
+   "top_caption": "A group of people stand outside at night talking .",
+   "query_words": [
+    "distance",
+    "gazing",
+    "men",
+    "three"
+   ],
+   "covered_words": [
+    "men"
+   ],
+   "missed_words": [
+    "distance",
+    "gazing",
+    "three"
+   ],
+   "coverage": 0.25,
+   "rarest_word": "gazing",
+   "rarest_corpus_count": 6,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q019",
+   "query_text": "onlookers watching fireworks in the dark",
+   "category": "scene",
+   "rank": 27,
+   "gold_image_id": "test_00857",
+   "top_image_id": "train_05061",
+   "top_caption": "Four men are standing outside in front of a fence .",
+   "query_words": [
+    "dark",
+    "fireworks",
+    "onlookers",
+    "watching"
+   ],
+   "covered_words": [
+    "watching"
+   ],
+   "missed_words": [
+    "dark",
+    "fireworks",
+    "onlookers"
+   ],
+   "coverage": 0.25,
+   "rarest_word": "fireworks",
+   "rarest_corpus_count": 7,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q014",
+   "query_text": "a footballer striking the ball with his head",
+   "category": "action",
+   "rank": 57,
+   "gold_image_id": "test_00721",
+   "top_image_id": "train_01245",
+   "top_caption": "A brown and white dog plays with a ball in the dirt .",
+   "query_words": [
+    "ball",
+    "footballer",
+    "head",
+    "striking"
+   ],
+   "covered_words": [
+    "ball"
+   ],
+   "missed_words": [
+    "footballer",
+    "head",
+    "striking"
+   ],
+   "coverage": 0.25,
+   "rarest_word": "striking",
+   "rarest_corpus_count": 5,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q009",
+   "query_text": "someone airborne on a snowboard",
+   "category": "action",
+   "rank": 233,
+   "gold_image_id": "test_00314",
+   "top_image_id": "train_00452",
+   "top_caption": "A boy does a jumping trick on a snowboard .",
+   "query_words": [
+    "airborne",
+    "snowboard",
+    "someone"
+   ],
+   "covered_words": [
+    "snowboard"
+   ],
+   "missed_words": [
+    "airborne",
+    "someone"
+   ],
+   "coverage": 0.3333,
+   "rarest_word": "snowboard",
+   "rarest_corpus_count": 54,
+   "pattern": "fragment_match"
+  },
+  {
+   "query_id": "q025",
+   "query_text": "a skateboarder wearing a crimson top",
+   "category": "attribute",
+   "rank": 2,
+   "gold_image_id": "test_00194",
+   "top_image_id": "train_02338",
+   "top_caption": "A girl in a red shirt and brown pants is skating .",
+   "query_words": [
+    "crimson",
+    "skateboarder",
+    "top",
+    "wearing"
+   ],
+   "covered_words": [
+    "wearing"
+   ],
+   "missed_words": [
+    "crimson",
+    "skateboarder",
+    "top"
+   ],
+   "coverage": 0.25,
+   "rarest_word": "crimson",
+   "rarest_corpus_count": 0,
+   "pattern": "vocabulary_gap"
+  },
+  {
+   "query_id": "q008",
+   "query_text": "a religious signboard on a street",
+   "category": "object",
+   "rank": 2,
+   "gold_image_id": "test_00414",
+   "top_image_id": "validation_00062",
+   "top_caption": "A man draws characters with his feel on the street .",
+   "query_words": [
+    "religious",
+    "signboard",
+    "street"
+   ],
+   "covered_words": [
+    "street"
+   ],
+   "missed_words": [
+    "religious",
+    "signboard"
+   ],
+   "coverage": 0.3333,
+   "rarest_word": "signboard",
+   "rarest_corpus_count": 0,
+   "pattern": "vocabulary_gap"
+  },
+  {
+   "query_id": "q034",
+   "query_text": "three men assembling a sledge on snow",
+   "category": "counting",
+   "rank": 4,
+   "gold_image_id": "test_00465",
+   "top_image_id": "train_04380",
+   "top_caption": "One child in black is walking down a hill covered in white snow while 2 children are on their knees .",
+   "query_words": [
+    "assembling",
+    "men",
+    "sledge",
+    "snow",
+    "three"
+   ],
+   "covered_words": [
+    "snow",
+    "three"
+   ],
+   "missed_words": [
+    "assembling",
+    "men",
+    "sledge"
+   ],
+   "coverage": 0.4,
+   "rarest_word": "assembling",
+   "rarest_corpus_count": 0,
+   "pattern": "vocabulary_gap"
+  },
+  {
+   "query_id": "q011",
+   "query_text": "a dog catching a flying disc in mid-air",
+   "category": "action",
+   "rank": 551,
+   "gold_image_id": "test_00845",
+   "top_image_id": "train_05305",
+   "top_caption": "A brown dog leaps up to catch an orange toy .",
+   "query_words": [
+    "catching",
+    "disc",
+    "dog",
+    "flying",
+    "mid-air"
+   ],
+   "covered_words": [
+    "disc",
+    "dog"
+   ],
+   "missed_words": [
+    "catching",
+    "flying",
+    "mid-air"
+   ],
+   "coverage": 0.4,
+   "rarest_word": "mid-air",
+   "rarest_corpus_count": 0,
+   "pattern": "vocabulary_gap"
+  }
+ ]
+}

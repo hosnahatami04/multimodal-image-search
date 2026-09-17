@@ -26,7 +26,8 @@ from src import config
 logger = logging.getLogger(__name__)
 
 
-def _load(name: str) -> dict | None:
+def _load(name: str):
+    """Read a result file, or warn and return None if it has not been produced."""
     path = config.RESULTS_DIR / name
     if not path.exists():
         logger.warning("%s missing; its section will be skipped", name)
@@ -245,6 +246,88 @@ def _hard_negative_section(data: dict | None) -> list[str]:
     ]
 
 
+def _retrieval_failure_section(data: dict | None) -> list[str]:
+    if not data:
+        return []
+
+    summary = data["summary"]
+    lines = [
+        "## Where retrieval fails, and why",
+        "",
+        f"{summary['num_failures']} queries failed for real -- that is, the image the model",
+        "returned was not merely a different photograph of the same thing. Reading them",
+        "together, they are not 25 unrelated accidents.",
+        "",
+        f"On average a failed query's returned image supports only "
+        f"**{summary['mean_coverage']:.0%}** of the query's content words.",
+        "",
+        "| Pattern | n | What it means |",
+        "|---|---|---|",
+    ]
+    for name, count in summary["by_pattern"].items():
+        lines.append(
+            f"| {name.replace('_', ' ')} | {count} | {summary['pattern_descriptions'][name]} |"
+        )
+
+    lines += [
+        "",
+        "**Fragment match** is the largest group and the most characteristic. CLIP",
+        "compresses an entire query into one 512-dimensional vector *before* it sees any",
+        "photograph, so a query carrying five constraints arrives as a blur of all five.",
+        "The nearest image is then whichever one matches the strongest surviving concept.",
+        "",
+        "**Constraint dropped** is the same mechanism in a milder form: the head noun",
+        'survives compression and its modifiers do not. "A rowing boat on open blue',
+        'water" returns a motorboat on a waterway -- boat, water and blue are all',
+        'present, and nothing in a single vector can say that "rowing" modifies',
+        '"boat".',
+        "",
+        "**Vocabulary gap** is not a model failure and is reported separately for that",
+        "reason. The query said *crimson*; no caption in this corpus uses that word, so",
+        "there was no caption evidence to rank against. CLIP knows the word perfectly",
+        "well -- it returned a girl in a red shirt who is skating, which is substantially",
+        "correct. This is the cost of Phase 4's decision to rewrite queries rather than",
+        "copy captions, and it is worth seeing rather than hiding.",
+        "",
+    ]
+    return lines
+
+
+def _failure_case_section(cases: list | None) -> list[str]:
+    if not cases:
+        return []
+
+    lines = [
+        "## Worked failure cases",
+        "",
+        "An accuracy table says how often the system is wrong. These say what being",
+        "wrong looks like, which is what decides whether it is usable for a given",
+        "problem.",
+        "",
+    ]
+
+    for case in cases:
+        label = "Retrieval" if case["system"] == "retrieval" else "Visual QA"
+        lines += [
+            f"### {label} — {case['pattern'].replace('_', ' ')}",
+            "",
+            f"![{case['image_id']}]({case['image_file']})",
+            "",
+            "| | |",
+            "|---|---|",
+            f"| **Asked** | {case['prompt']} |",
+            f"| **Expected** | {case['expected']} |",
+            f"| **Produced** | {case['produced']} |",
+            "",
+            f"*Captions:* {case['captions'][0]}",
+            "",
+            case["diagnosis"],
+            "",
+        ]
+
+    return lines
+
+
 def _latency_section(data: dict | None) -> list[str]:
     if not data:
         return []
@@ -298,6 +381,8 @@ def build() -> str:
     lines += _retrieval_section(_load("retrieval.json"), _load("false_negatives.json"))
     lines += _hard_negative_section(_load("hard_negatives.json"))
     lines += _vqa_section(_load("vqa.json"))
+    lines += _retrieval_failure_section(_load("retrieval_failures.json"))
+    lines += _failure_case_section(_load("failure_cases.json"))
     lines += _latency_section(_load("latency.json"))
 
     return "\n".join(lines)
