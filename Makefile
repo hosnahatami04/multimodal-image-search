@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------
 PYTHON ?= python
 
-.PHONY: help install fetch fetch-blip download stats agreement check-clip encode space search smoke queries eval hard-negatives latency vqa-questions vqa plots report evaluate test test-all lint format clean-index clean
+.PHONY: help install fetch fetch-blip download stats agreement check-clip encode space search smoke queries eval hard-negatives latency vqa-questions vqa failures plots report evaluate test test-all lint format clean-index clean
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -66,13 +66,17 @@ hard-negatives:  ## Build and score the hard-negative groups
 latency:  ## Benchmark query latency on CPU
 	$(PYTHON) -m src.eval.latency --save
 
+failures:  ## Analyse the failure patterns and assemble the worked cases
+	$(PYTHON) -m src.eval.retrieval_failures --save
+	$(PYTHON) -m src.eval.failure_cases --save
+
 plots:  ## Render the evaluation figures
 	$(PYTHON) -m src.eval.plots
 
 report:  ## Regenerate results/report.md from the committed result files
 	$(PYTHON) -m src.eval.report
 
-evaluate: queries eval hard-negatives latency vqa-questions vqa plots report  ## Run the whole evaluation
+evaluate: queries eval hard-negatives latency vqa-questions vqa failures plots report  ## Run the whole evaluation
 
 test:  ## Run the tests that need no model weights or dataset (what CI runs)
 	$(PYTHON) -m pytest -q -m "not model and not data"

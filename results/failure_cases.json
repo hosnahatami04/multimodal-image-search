@@ -1,0 +1,217 @@
+[
+ {
+  "case_id": "retrieval:q043",
+  "system": "retrieval",
+  "pattern": "fragment_match",
+  "image_id": "test_00460",
+  "image_file": "failure_cases/test_00460.jpg",
+  "prompt": "a child asleep stretched across two chairs",
+  "expected": "test_00460 at rank 1",
+  "produced": "train_04232 at rank 1; gold at rank 26",
+  "captions": [
+   "A child in a black cap sleeping across two chairs .",
+   "A small boy in a hat asleep on a padded bench .",
+   "A small child sucks his thumb while sleeping with a pink blanket on a multi-colored seat .",
+   "A young boy wearing a dark blue hat sleeps on a bench at a terminal .",
+   "Small boy sleeping on seats and sucking his thumb ."
+  ],
+  "diagnosis": "The query carries five constraints -- a child, asleep, stretched, across, two chairs -- and the returned image supports none of them. CLIP compresses the whole sentence into one 512-dimensional vector before it sees any photograph, and a vector that must simultaneously encode a posture, a count, a spatial relation and a piece of furniture ends up encoding none of them strongly. The nearest image is one that is vaguely about small children, which is what survives the compression.",
+  "detail": {
+   "rank": 26,
+   "coverage": 0.0,
+   "covered_words": [],
+   "missed_words": [
+    "asleep",
+    "chairs",
+    "child",
+    "stretched",
+    "two"
+   ],
+   "returned_caption": "A baby plays with a young boys face .",
+   "returned_image_id": "train_04232"
+  }
+ },
+ {
+  "case_id": "retrieval:q039",
+  "system": "retrieval",
+  "pattern": "fragment_match",
+  "image_id": "test_00783",
+  "image_file": "failure_cases/test_00783.jpg",
+  "prompt": "four or more swimmers heading toward a bridge",
+  "expected": "test_00783 at rank 1",
+  "produced": "train_00252 at rank 1; gold at rank 39",
+  "captions": [
+   "At least 4 people swim in shallow water that grows deeps towards a bridge .",
+   "Children are playing and swimming in a boy of water with a foot bridge in the background .",
+   "Kids playing in the water in front of a wooden bridge .",
+   "Two children playing in a lake",
+   "Two children playing in a river near a wooden bridge ."
+  ],
+  "diagnosis": "\"Four or more\" is a quantity expressed as a range, and CLIP has no mechanism for either part: not for the exact count, and not for the comparison. What reaches the embedding is roughly \"swimmers\", so the model returns children in a pool. The Phase 5 contrast is the point here: BLIP answers counting questions at 0.88 on the same images, because it holds the question while looking rather than compressing it first.",
+  "detail": {
+   "rank": 39,
+   "coverage": 0.1667,
+   "covered_words": [
+    "swimmers"
+   ],
+   "missed_words": [
+    "bridge",
+    "four",
+    "heading",
+    "more",
+    "toward"
+   ],
+   "returned_caption": "Children playing in a pool .",
+   "returned_image_id": "train_00252"
+  }
+ },
+ {
+  "case_id": "retrieval:q025",
+  "system": "retrieval",
+  "pattern": "vocabulary_gap",
+  "image_id": "test_00194",
+  "image_file": "failure_cases/test_00194.jpg",
+  "prompt": "a skateboarder wearing a crimson top",
+  "expected": "test_00194 at rank 1",
+  "produced": "train_02338 at rank 1; gold at rank 2",
+  "captions": [
+   "A man in a red shirt is doing a trick with his skateboard .",
+   "A man wearing a red shirt is skateboarding .",
+   "A skateboarder is performing a trick in the air .",
+   "A skateboarder jumps in the air .",
+   "Person doing a skateboard trick in midair ."
+  ],
+  "diagnosis": "The query says crimson; every caption in the corpus that describes this colour says red. The model returned a girl in a red shirt who is skating -- which is, in substance, exactly right. This is not a model failure but a gap between the evaluation vocabulary and the corpus vocabulary, introduced by Phase 4's decision to rewrite queries rather than copy captions. That decision was correct and this is its cost, visible.",
+  "detail": {
+   "rank": 2,
+   "coverage": 0.25,
+   "covered_words": [
+    "wearing"
+   ],
+   "missed_words": [
+    "crimson",
+    "skateboarder",
+    "top"
+   ],
+   "returned_caption": "A girl in a red shirt and brown pants is skating .",
+   "returned_image_id": "train_02338"
+  }
+ },
+ {
+  "case_id": "retrieval:q006",
+  "system": "retrieval",
+  "pattern": "constraint_dropped",
+  "image_id": "test_00789",
+  "image_file": "failure_cases/test_00789.jpg",
+  "prompt": "a rowing boat on open blue water",
+  "expected": "test_00789 at rank 1",
+  "produced": "train_03347 at rank 1; gold at rank 5",
+  "captions": [
+   "A man in a rowboat is rowing across blue water .",
+   "A man is rowing in a small boat called Neptuno",
+   "A man rows his boat below .",
+   "Man rowing a boat .",
+   "The fisherman paddles in his to a new spot ."
+  ],
+  "diagnosis": "The head noun matched and the modifiers did not: the returned image is a boat on water, but a motorboat driven past apartments rather than a rowing boat on open water. \"Rowing\" and \"open\" are both adjectival constraints on \"boat\", and CLIP's single vector cannot express that one concept modifies another. It sees boat, water, blue -- all present -- and ranks accordingly.",
+  "detail": {
+   "rank": 5,
+   "coverage": 0.4,
+   "covered_words": [
+    "blue",
+    "boat"
+   ],
+   "missed_words": [
+    "open",
+    "rowing",
+    "water"
+   ],
+   "returned_caption": "A man drives a boat along a waterway lined with apartments .",
+   "returned_image_id": "train_03347"
+  }
+ },
+ {
+  "case_id": "vqa:whistle",
+  "system": "vqa",
+  "pattern": "action",
+  "image_id": "test_00731",
+  "image_file": "failure_cases/test_00731.jpg",
+  "prompt": "What is the girl doing?",
+  "expected": "blowing a whistle",
+  "produced": "talking on phone",
+  "captions": [
+   "A girl blows a whistle .",
+   "A little girl in a yellow dress with red flowers blows a whistle .",
+   "A little girl with a yellow dress blows the whistle .",
+   "A small girl blows a whistle .",
+   "A young girl in a yellow flowered sundress holds something in her right hand to her mouth ."
+  ],
+  "diagnosis": "The model answered \"talking on phone\" for a girl blowing a whistle. Looking at the photograph explains it: the whistle is small, silver, and almost entirely hidden behind her fingers, and her hand is raised to her face in exactly the posture of someone holding a phone. The visible evidence -- a small bright object, a raised hand, a face turned toward it -- is genuinely shared between the two acts, and phones outnumber whistles in web training data by orders of magnitude. This is a prior overwhelming weak evidence rather than a perception error, and it recurs on a second image, which is what makes it a pattern.",
+  "detail": {
+   "question_type": "action"
+  }
+ },
+ {
+  "case_id": "vqa:cigarette",
+  "system": "vqa",
+  "pattern": "action",
+  "image_id": "test_00928",
+  "image_file": "failure_cases/test_00928.jpg",
+  "prompt": "What is the man doing?",
+  "expected": "smoking",
+  "produced": "looking at phone",
+  "captions": [
+   "A man in a white restaraunt shirt smokes next to a dumpster .",
+   "A man is lighting a smoke outside of a building .",
+   "a man lighting a cigarette near a dumpster in an ally .",
+   "A man lights a cigarette on a loading dock near a dumpster .",
+   "The man is lighting a cigarette outside the back of a building ."
+  ],
+  "diagnosis": "The second instance of the same failure, which is what makes it a pattern rather than an accident. A man lighting a cigarette becomes \"looking at phone\". Both cases involve a small object near the face, and in both the model reaches for the commonest explanation for that configuration in its training distribution. A product built on this would misreport smoking as phone use consistently, not occasionally.",
+  "detail": {
+   "question_type": "action"
+  }
+ },
+ {
+  "case_id": "vqa:counting_three",
+  "system": "vqa",
+  "pattern": "counting",
+  "image_id": "test_00418",
+  "image_file": "failure_cases/test_00418.jpg",
+  "prompt": "How many dogs are racing?",
+  "expected": "3",
+  "produced": "2",
+  "captions": [
+   "A group of dogs racing .",
+   "A number eight racing dog is beating a number four racing dog slightly in a race .",
+   "Several dogs wearing muzzles are racing on a track .",
+   "There are three dogs wearing numbered jerseys running a race .",
+   "Three race dogs run to finish a race ."
+  ],
+  "diagnosis": "Every counting question with a gold answer of 1 or 2 was answered correctly -- fourteen of fourteen. Both errors are at 3, and both are off by exactly one. The model is not guessing: it is estimating, and its estimate degrades in a specific, bounded way as the count rises. That distinction matters for whether the capability is usable: \"reliable up to two, approximate above\" is a specification, where \"0.88 accurate\" is not.",
+  "detail": {
+   "question_type": "counting"
+  }
+ },
+ {
+  "case_id": "vqa:red_brown",
+  "system": "vqa",
+  "pattern": "colour",
+  "image_id": "test_00632",
+  "image_file": "failure_cases/test_00632.jpg",
+  "prompt": "What colour are the chairs?",
+  "expected": "red",
+  "produced": "brown",
+  "captions": [
+   "An empty seat at a Mexican themed restaurant .",
+   "A red colored diner features dark red chairs .",
+   "Crowded Mexican restaurant , empty chair in foreground .",
+   "Many people sit in a Mexican restaurant .",
+   "People are sitting in a cheery Mexican restaurant ."
+  ],
+  "diagnosis": "Red was read as brown twice, on different images and different objects (these restaurant chairs, and a boy's vest). A single colour error would be noise; the same confusion twice out of four colour errors is a systematic bias. The image shows why it is a defensible one: the chairs are stained wood under warm low restaurant lighting, and their pixels sit genuinely between red and brown. Five annotators called them red because they had the scene -- a red-walled Mexican restaurant -- to read the colour against. The model has only the pixels, and the pixels are ambiguous.",
+  "detail": {
+   "question_type": "colour"
+  }
+ }
+]
