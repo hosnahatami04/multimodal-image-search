@@ -10,6 +10,10 @@ sets, and a breakdown of the failure cases by category.
 
 Full numbers and plots: [`results/report.md`](results/report.md).
 
+## Demo
+
+[![Watch the demo](assets/demo-thumbnail.png)](https://youtu.be/slACWL9lV-8)
+
 ## Results
 
 8,000 images, 40,000 captions, Karpathy test split.
