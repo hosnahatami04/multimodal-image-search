@@ -5,6 +5,7 @@
 # that "how do I run X" never has to be answered from memory or shell history.
 # ---------------------------------------------------------------------------
 PYTHON ?= python
+PORT ?= 8000
 
 .PHONY: help install fetch fetch-blip download stats agreement check-clip encode space search smoke queries eval hard-negatives latency vqa-questions vqa failures plots report evaluate serve check docker-build docker-run test test-all lint format clean-index clean
 
@@ -78,8 +79,8 @@ report:  ## Regenerate results/report.md from the committed result files
 
 evaluate: queries eval hard-negatives latency vqa-questions vqa failures plots report  ## Run the whole evaluation
 
-serve:  ## Run the API locally -- http://127.0.0.1:8000/docs
-	$(PYTHON) -m uvicorn src.api:app --reload
+serve:  ## Run the API locally -- make serve PORT=8001 to use another port
+	$(PYTHON) -m uvicorn src.api:app --reload --port $(PORT)
 
 check:  ## Verify the committed metrics have not regressed (what CI gates on)
 	$(PYTHON) scripts/check_metrics.py
