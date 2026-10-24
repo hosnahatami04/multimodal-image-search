@@ -19,7 +19,6 @@ import argparse
 import json
 import logging
 import sys
-from datetime import UTC, datetime
 
 from src import config
 
@@ -365,7 +364,7 @@ def build() -> str:
     lines: list[str] = [
         "# Evaluation report",
         "",
-        f"Generated {datetime.now(UTC).strftime('%Y-%m-%d')} from the files in `results/`.",
+        "Generated from the files in `results/`.",
         f"Model `{config.CLIP_MODEL_ID}` at revision `{config.CLIP_REVISION[:12]}`,",
         f"dataset `{config.DATASET_ID}` at `{config.DATASET_REVISION[:12]}`.",
         "",
