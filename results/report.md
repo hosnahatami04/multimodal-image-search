@@ -1,6 +1,6 @@
 # Evaluation report
 
-Generated 2026-09-17 from the files in `results/`.
+Generated from the files in `results/`.
 Model `openai/clip-vit-base-patch32` at revision `3d74acf9a28c`,
 dataset `jxie/flickr8k` at `56f58c967835`.
 
