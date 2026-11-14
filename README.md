@@ -16,7 +16,8 @@ Full numbers and plots: [`results/report.md`](results/report.md).
 
 ## Results
 
-8,000 images, 40,000 captions, Karpathy test split.
+Corpus: 8,000 images and 40,000 captions (Karpathy test split). Evaluated on
+51 hand-written search queries and 100 visual questions in `eval_sets/`.
 
 | Retrieval | |
 |---|---|
